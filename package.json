@@ -1,7 +1,7 @@
 {
   "name": "udf-kit",
   "version": "0.1.0",
-  "description": "Convert PDF and DOCX documents to UYAP UDF by embedding rasterized page images.",
+  "description": "Convert PDF documents to UYAP UDF by embedding rasterized page images.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,7 +26,6 @@
     "udf",
     "uyap",
     "pdf",
-    "docx",
     "converter"
   ],
   "license": "MIT",

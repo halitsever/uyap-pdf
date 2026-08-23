@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { convertPdfBufferToUdf } from "../src/docx-to-udf.js";
+import { convertPdfBufferToUdf } from "../src/pdf-to-udf.js";
 
 const LOREM =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +

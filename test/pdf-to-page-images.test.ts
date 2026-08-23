@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 import PizZip from "pizzip";
 import sharp from "sharp";
-import { convertPdfBufferToUdf } from "../src/docx-to-udf.js";
+import { convertPdfBufferToUdf } from "../src/pdf-to-udf.js";
 import { rasterizePdfPagesToPng } from "../src/pdf-to-page-images.js";
 
 /** Minimal two-page A4 PDF with one line of text per page. */

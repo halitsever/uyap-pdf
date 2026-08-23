@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 import PizZip from "pizzip";
-import { pxToPt, zeroUdfPageMargins } from "../src/docx-to-udf.js";
+import { pxToPt, zeroUdfPageMargins } from "../src/pdf-to-udf.js";
 
 describe("pxToPt", () => {
   test("converts pixels to points (1/72 inch) at 200 DPI", () => {

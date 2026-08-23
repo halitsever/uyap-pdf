@@ -1,8 +1,6 @@
 import PizZip from "pizzip";
 import sharp from "sharp";
 import { htmlToUdf } from "udf-cli";
-import { convertDocxBufferToPdf } from "./docx-to-pdf.js";
-import { bufferLooksLikeDocxZip } from "./libreoffice-convert.js";
 import { rasterizePdfPagesToPng } from "./pdf-to-page-images.js";
 
 const RASTERIZE_DPI = 200;
@@ -51,12 +49,8 @@ async function buildPagesHtml(pagePngs: Buffer[]): Promise<string> {
 
 /**
  * Rasterizes each PDF page to a high resolution image and embeds them into
- * a UYAP UDF. The UDF mirrors the PDF pages exactly, so LibreOffice HTML
- * export bugs (line spacing, table widths, header/footer loss) cannot affect it.
- *
- * Callers that already produced the PDF (e.g. a request shipping both PDF and
- * UDF attachments) can call this directly and skip a second DOCX to PDF run
- * through the LibreOffice subprocess.
+ * a UYAP UDF. The UDF mirrors the PDF pages exactly, so text-conversion
+ * layout bugs (line spacing, table widths, header/footer loss) cannot affect it.
  */
 export async function convertPdfBufferToUdf(
   pdf: Buffer,
@@ -74,22 +68,3 @@ export async function convertPdfBufferToUdf(
   }
 }
 
-/** Converts DOCX to PDF via LibreOffice, then embeds it with {@link convertPdfBufferToUdf}. */
-export async function convertDocxBufferToUdf(
-  docx: Buffer,
-): Promise<{ ok: true; udf: Buffer } | { ok: false; error: string }> {
-  if (!bufferLooksLikeDocxZip(docx)) {
-    return {
-      ok: false,
-      error:
-        "Could not create UDF: input is not a valid DOCX (file is empty or not a ZIP-based Office document).",
-    };
-  }
-
-  const pdfOutcome = await convertDocxBufferToPdf(docx);
-  if (!pdfOutcome.ok) {
-    return { ok: false, error: pdfOutcome.error };
-  }
-
-  return convertPdfBufferToUdf(pdfOutcome.pdf);
-}
