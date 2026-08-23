@@ -4,9 +4,9 @@
 <img src="https://halitsever-api.vercel.app/api/repo-title?title=udf-kit">
 
 <p align="center">
-PDF to UDF converter — a UDF (UYAP file type) toolkit for JavaScript.<br>
+A PDF to UDF converter and UDF (UYAP file type) toolkit for JavaScript.<br>
 <br/>
-🌐 <a href="https://halitsever.github.io/udf-kit/">Try it in the browser</a> — free, files never leave your device.<br>
+🌐 <a href="https://halitsever.github.io/udf-kit/">Try it in the browser</a>: free, and files never leave your device.<br>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever"/>
 </p>
@@ -16,9 +16,9 @@ PDF to UDF converter — a UDF (UYAP file type) toolkit for JavaScript.<br>
 <img src="https://halitsever-api.vercel.app/api/details"/>
 </p>
 
-- 🖥️ **Web app** — `site/` hosts a static, browser-only PDF → UDF converter (Turkish + English), deployed to GitHub Pages by `.github/workflows/deploy.yml`. Conversion runs fully client-side.
-- 📚 **Node library** — converts PDF documents into UYAP UDF files. Each page is rasterized to a high-resolution PNG (200 DPI) and embedded as a full-page image, so the output is a pixel-faithful copy of the source. Layout quirks of text-based converters (line spacing, table widths, lost headers/footers) do not apply.
-- 🔁 Fully self-contained: pages are rendered with PDFium compiled to WebAssembly, so a plain `npm install` works on macOS, Windows and Linux. For Word documents, export to PDF first (File → Save As → PDF), then convert.
+- 🖥️ **Web app** - `site/` is a static, browser-only PDF → UDF converter in Turkish and English. GitHub Pages serves it through `.github/workflows/deploy.yml`, and conversion runs fully client-side.
+- 📚 **Node library** - converts PDF documents into UYAP UDF files. It rasterizes each page to a 200 DPI PNG and embeds it as a full-page image, so the output looks exactly like the source. Line spacing, table widths and lost headers/footers, the usual problems of text-based converters, cannot happen here.
+- 🔁 **No system dependencies** - PDFium compiled to WebAssembly renders the pages, so a plain `npm install` is enough on macOS, Windows and Linux. For Word documents, export to PDF first (File → Save As → PDF), then convert.
 
 <p align="center" >
 <img src="https://halitsever-api.vercel.app/api/installation"/>
@@ -41,7 +41,7 @@ if (outcome.ok) await writeFile("document.udf", outcome.udf);
 
 Other exports: `rasterizePdfPagesToPng`, `pxToPt`, `zeroUdfPageMargins`.
 
-Web site development:
+To work on the web site:
 
 ```sh
 cd site
