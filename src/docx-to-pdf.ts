@@ -30,7 +30,7 @@ export async function convertDocxBufferToPdf(
     return {
       ok: false,
       error:
-        "PDF oluşturulamadı: Geçerli bir DOCX verilmiyor (dosya boş veya ZIP tabanlı Office belgesi değil).",
+        "Could not create PDF: input is not a valid DOCX (file is empty or not a ZIP-based Office document).",
     };
   }
 
@@ -39,7 +39,7 @@ export async function convertDocxBufferToPdf(
     return {
       ok: false,
       error:
-        "PDF dönüştürme kullanılamıyor: sunucuda LibreOffice bulunamadı. libreoffice veya soffice kurun ya da LIBREOFFICE_PATH ile ikili yolunu tanımlayın.",
+        "PDF conversion unavailable: LibreOffice not found. Install libreoffice or soffice, or set LIBREOFFICE_PATH to the binary.",
     };
   }
 
@@ -47,7 +47,7 @@ export async function convertDocxBufferToPdf(
   const inputPath = join(tmp, "document.docx");
 
   const convertAttempts: { label: string; arg: string }[] = [
-    { label: "pdf (varsayılan filtre)", arg: "pdf" },
+    { label: "pdf (default filter)", arg: "pdf" },
     { label: "pdf:writer_pdf_Export", arg: "pdf:writer_pdf_Export" },
   ];
 
@@ -85,21 +85,21 @@ export async function convertDocxBufferToPdf(
       /* ignore */
     }
     const mergedStderr = stderrParts.join(" · ").slice(0, 1200);
-    console.error("[convertDocxBufferToPdf] Tüm denemeler başarısız; tmp:", listing.join(", "), mergedStderr);
+    console.error("[convertDocxBufferToPdf] all attempts failed; tmp:", listing.join(", "), mergedStderr);
 
     const macHint =
       process.platform === "darwin" && !bin.includes("LibreOffice.app")
-        ? " macOS: Uygulama klasöründeki tam LibreOffice yüklemesini kullanın veya LIBREOFFICE_PATH=/Applications/LibreOffice.app/Contents/MacOS/soffice ayarlayın."
+        ? " macOS: use the full LibreOffice install from /Applications, or set LIBREOFFICE_PATH=/Applications/LibreOffice.app/Contents/MacOS/soffice."
         : "";
 
     return {
       ok: false,
-      error: `PDF oluşturulamadı: LibreOffice dosyayı dönüştüremedi (PDF çıktısı üretilmedi).${macHint} Ayrıntı: ${mergedStderr || listing.join(", ") || "stderr yok"}`,
+      error: `Could not create PDF: LibreOffice failed to convert the file (no PDF output).${macHint} Details: ${mergedStderr || listing.join(", ") || "no stderr"}`,
     };
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     console.error("[convertDocxBufferToPdf]", e);
-    return { ok: false, error: `PDF oluşturulamadı: ${msg.slice(0, 800)}` };
+    return { ok: false, error: `Could not create PDF: ${msg.slice(0, 800)}` };
   } finally {
     await rm(tmp, { recursive: true, force: true }).catch(() => {
       /* ignore */

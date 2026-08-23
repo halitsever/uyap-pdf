@@ -70,7 +70,7 @@ export async function convertPdfBufferToUdf(
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     console.error("[convertPdfBufferToUdf]", e);
-    return { ok: false, error: `UDF oluşturulamadı: ${msg.slice(0, 800)}` };
+    return { ok: false, error: `Could not create UDF: ${msg.slice(0, 800)}` };
   }
 }
 
@@ -82,7 +82,7 @@ export async function convertDocxBufferToUdf(
     return {
       ok: false,
       error:
-        "UDF oluşturulamadı: Geçerli bir DOCX verilmiyor (dosya boş veya ZIP tabanlı Office belgesi değil).",
+        "Could not create UDF: input is not a valid DOCX (file is empty or not a ZIP-based Office document).",
     };
   }
 
