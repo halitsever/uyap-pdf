@@ -25,7 +25,7 @@ export async function rasterizePdfPagesToPng(pdf: Buffer, dpi = 200): Promise<Bu
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
     throw new Error(
-      `PDF sayfaları görsele çevrilemedi: PDF açılamadı (bozuk veya şifreli olabilir). Ayrıntı: ${msg.slice(0, 800)}`,
+      `Could not rasterize PDF pages: the PDF failed to open (it may be corrupted or password-protected). Details: ${msg.slice(0, 800)}`,
     );
   }
 
@@ -42,7 +42,7 @@ export async function rasterizePdfPagesToPng(pdf: Buffer, dpi = 200): Promise<Bu
     }
 
     if (pngs.length === 0) {
-      throw new Error("PDF sayfaları görsele çevrilemedi: belge hiç sayfa içermiyor.");
+      throw new Error("Could not rasterize PDF pages: the document has no pages.");
     }
 
     return pngs;
