@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF'ten UDF'ye Çevirme — Ücretsiz UYAP UDF Dönüştürücü</title>
+    <meta
+      name="description"
+      content="PDF dosyanızı tarayıcınızda ücretsiz UYAP UDF formatına çevirin. Dosyanız hiçbir sunucuya yüklenmez, sayfalar birebir korunur. Kurulum ve üyelik gerektirmez."
+    />
+    <link rel="canonical" href="https://halitsever.github.io/udf-converter/" />
+    <link rel="alternate" hreflang="tr" href="https://halitsever.github.io/udf-converter/" />
+    <link rel="alternate" hreflang="en" href="https://halitsever.github.io/udf-converter/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://halitsever.github.io/udf-converter/" />
+    <link rel="icon" type="image/svg+xml" href="/udf-converter/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PDF'ten UDF'ye Çevirme — Ücretsiz UYAP UDF Dönüştürücü" />
+    <meta
+      property="og:description"
+      content="PDF dosyanızı tarayıcınızda ücretsiz UYAP UDF formatına çevirin. Dosyanız hiçbir sunucuya yüklenmez."
+    />
+    <meta property="og:url" content="https://halitsever.github.io/udf-converter/" />
+    <meta property="og:image" content="https://halitsever.github.io/udf-converter/og-tr.png" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://halitsever.github.io/udf-converter/#app",
+            "name": "UDF Çevirici",
+            "url": "https://halitsever.github.io/udf-converter/",
+            "description": "PDF dosyalarını UYAP Doküman Editörü'nün kullandığı UDF formatına çeviren ücretsiz, tarayıcıda çalışan araç.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "tr",
+            "browserRequirements": "Requires JavaScript",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
+          },
+          {
+            "@type": "FAQPage",
+            "inLanguage": "tr",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Oluşan UDF dosyası UYAP'ta açılır mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evet. Üretilen dosya UYAP Doküman Editörü ve UYAP portallarıyla uyumlu, geçerli bir UDF belgesidir. İndirdikten sonra editörde açıp kontrol edebilirsiniz."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Metni UDF içinde düzenleyebilir miyim?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Sayfalar görüntü olarak gömülür; çıktı taranmış belge gibidir. Görünüm piksel sadakatiyle korunur ancak metin düzenlenemez. Göndermeye hazır belgeler için idealdir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Dosya boyutu sınırı var mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sabit bir sınır yok; ancak dönüşüm tarayıcı belleğinde yapıldığı için yüzlerce sayfalık çok büyük PDF'lerde tarayıcınız zorlanabilir. Böyle dosyaları bölerek çevirmenizi öneririz."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Şifreli (parola korumalı) PDF çevrilebilir mi?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hayır. Parola korumalı PDF'lerin önce korumasının kaldırılması gerekir; ardından bu sayfada sorunsuz çevrilir."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Araç ücretsiz mi, üyelik gerekiyor mu?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tamamen ücretsiz ve açık kaynaklıdır. Üyelik, kurulum ve kullanım sınırı yoktur."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Telefonda çalışır mı?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evet, güncel mobil tarayıcılarda çalışır. Çok sayfalı büyük PDF'lerde telefon belleği yetmeyebilir; bu durumda bilgisayardan çevirmeniz daha sağlıklı olur."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="wordmark" href="/udf-converter/">UDF Çevirici<span class="dot">.</span></a>
+        <nav>
+          <a href="#nasil">Nasıl çalışır?</a>
+          <a href="#sss">SSS</a>
+          <a href="https://github.com/halitsever/udf-converter">GitHub</a>
+          <a href="/udf-converter/en/" lang="en" hreflang="en">EN</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="hero">
+          <p class="eyebrow">Ücretsiz<span class="sep">•</span>Tarayıcıda çalışır<span class="sep">•</span>Dosyanız yüklenmez</p>
+          <h1>PDF'i UDF'ye çevirin</h1>
+          <p class="lede">
+            UYAP Doküman Editörü'nün beklediği <strong>.udf</strong> dosyasını saniyeler içinde oluşturun.
+            Sayfalarınız yüksek çözünürlükte, birebir korunur.
+          </p>
+
+          <div class="sheet" id="tool">
+            <button class="dropzone" id="dropzone" type="button">
+              <span class="icon" aria-hidden="true">⚖</span>
+              <strong>PDF dosyanızı buraya bırakın</strong>
+              <span class="hint">veya tıklayıp seçin — en fazla tek dosya</span>
+            </button>
+            <input type="file" id="file-input" accept="application/pdf,.pdf" hidden />
+          </div>
+          <p class="tool-note" id="tool-note">
+            Dönüşüm cihazınızda gerçekleşir; PDF hiçbir sunucuya gönderilmez.
+          </p>
+          <noscript>
+            <p class="error">Bu araç tarayıcınızda çalışır ve JavaScript gerektirir. Lütfen JavaScript'i etkinleştirin.</p>
+          </noscript>
+        </section>
+
+        <section id="nasil" aria-labelledby="nasil-h">
+          <h2 id="nasil-h">PDF'ten UDF'ye üç adımda</h2>
+          <ol class="steps">
+            <li>
+              <div>
+                <strong>PDF dosyanızı seçin</strong>
+                <span>Dilekçe, tutanak, rapor… Dosyayı yukarıdaki evrak alanına sürükleyin veya tıklayıp seçin.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Dönüşümü bekleyin</strong>
+                <span>Her sayfa tarayıcınızda 200 DPI çözünürlükte işlenir ve UDF belgesine gömülür.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>UDF dosyasını indirin</strong>
+                <span>İnen .udf dosyasını UYAP Doküman Editörü'nde açabilir veya doğrudan UYAP'a yükleyebilirsiniz.</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="udf-h">
+          <div class="folder-block">
+            <h2 id="udf-h">UDF dosyası nedir?</h2>
+            <p>
+              UDF (UYAP Doküman Formatı), Türkiye'nin Ulusal Yargı Ağı Bilişim Sistemi
+              <strong>UYAP</strong>'ın kullandığı resmi belge formatıdır. Avukatlar, vatandaşlar ve adliye
+              personeli; dilekçe, beyan ve tutanak gibi belgeleri UYAP'a bu formatta yükler.
+            </p>
+            <p>
+              UDF dosyaları yalnızca UYAP Doküman Editörü ile açıldığı için elinizdeki PDF'i doğrudan
+              yükleyemezsiniz. Bu araç, PDF'inizi UYAP'ın kabul ettiği geçerli bir UDF belgesine çevirir:
+              her sayfa yüksek çözünürlüklü görüntü olarak gömülür, böylece belgenin görünümü nokta nokta korunur.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="gizlilik-h">
+          <h2 id="gizlilik-h">Dosyanız bilgisayarınızdan çıkmaz</h2>
+          <p>
+            Hukuki belgeler hassastır. Bu yüzden dönüşümün tamamı tarayıcınızın içinde çalışır: PDF'iniz
+            okunur, sayfaları cihazınızda işlenir ve UDF yine cihazınızda oluşturulur. Hiçbir dosya, hiçbir
+            sunucuya gönderilmez; sayfa bir kez yüklendikten sonra internet bağlantısı olmadan da çalışır.
+          </p>
+          <p>
+            Araç açık kaynaklıdır; dilerseniz kodun tamamını
+            <a href="https://github.com/halitsever/udf-converter">GitHub üzerinde</a> inceleyebilirsiniz.
+          </p>
+        </section>
+
+        <section aria-labelledby="docx-h">
+          <h2 id="docx-h">Word (DOCX) belgesini UDF'ye çevirmek</h2>
+          <p>
+            Word belgeleri için en sağlıklı yol iki adımdır: önce Word'de
+            <strong>Dosya → Farklı Kaydet → PDF</strong> deyin, ardından oluşan PDF'i bu sayfada UDF'ye
+            çevirin. Böylece yazı tipleri, tablolar, üstbilgi ve altbilgiler dahil belgenizin görünümü
+            birebir korunur.
+          </p>
+        </section>
+
+        <section id="sss" class="faq" aria-labelledby="sss-h">
+          <h2 id="sss-h">Sık sorulan sorular</h2>
+          <details>
+            <summary>Oluşan UDF dosyası UYAP'ta açılır mı?</summary>
+            <p>
+              Evet. Üretilen dosya UYAP Doküman Editörü ve UYAP portallarıyla uyumlu, geçerli bir UDF
+              belgesidir. İndirdikten sonra editörde açıp kontrol edebilirsiniz.
+            </p>
+          </details>
+          <details>
+            <summary>Metni UDF içinde düzenleyebilir miyim?</summary>
+            <p>
+              Hayır. Sayfalar görüntü olarak gömülür; çıktı taranmış belge gibidir. Görünüm piksel
+              sadakatiyle korunur ancak metin düzenlenemez. Göndermeye hazır belgeler için idealdir.
+            </p>
+          </details>
+          <details>
+            <summary>Dosya boyutu sınırı var mı?</summary>
+            <p>
+              Sabit bir sınır yok; ancak dönüşüm tarayıcı belleğinde yapıldığı için yüzlerce sayfalık çok
+              büyük PDF'lerde tarayıcınız zorlanabilir. Böyle dosyaları bölerek çevirmenizi öneririz.
+            </p>
+          </details>
+          <details>
+            <summary>Şifreli (parola korumalı) PDF çevrilebilir mi?</summary>
+            <p>
+              Hayır. Parola korumalı PDF'lerin önce korumasının kaldırılması gerekir; ardından bu sayfada
+              sorunsuz çevrilir.
+            </p>
+          </details>
+          <details>
+            <summary>Araç ücretsiz mi, üyelik gerekiyor mu?</summary>
+            <p>Tamamen ücretsiz ve açık kaynaklıdır. Üyelik, kurulum ve kullanım sınırı yoktur.</p>
+          </details>
+          <details>
+            <summary>Telefonda çalışır mı?</summary>
+            <p>
+              Evet, güncel mobil tarayıcılarda çalışır. Çok sayfalı büyük PDF'lerde telefon belleği
+              yetmeyebilir; bu durumda bilgisayardan çevirmeniz daha sağlıklı olur.
+            </p>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>UDF Çevirici — açık kaynak, MIT lisansı</span>
+        <span>
+          <a href="https://github.com/halitsever/udf-converter">GitHub</a> ·
+          <a href="/udf-converter/en/" lang="en" hreflang="en">English</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

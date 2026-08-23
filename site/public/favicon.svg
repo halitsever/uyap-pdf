@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <g transform="rotate(-8 32 32)">
+    <circle cx="32" cy="32" r="29" fill="none" stroke="#b3232a" stroke-width="4"/>
+    <circle cx="32" cy="32" r="23" fill="none" stroke="#b3232a" stroke-width="1.5"/>
+    <text x="32" y="38.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="17" fill="#b3232a">UDF</text>
+  </g>
+</svg>

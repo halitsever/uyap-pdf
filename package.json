@@ -1,0 +1,44 @@
+{
+  "name": "udf-converter",
+  "version": "0.1.0",
+  "description": "Convert PDF and DOCX documents to UYAP UDF by embedding rasterized page images.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test test/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "udf",
+    "uyap",
+    "pdf",
+    "docx",
+    "converter"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@hyzyla/pdfium": "^2.1.13",
+    "pizzip": "^3.2.0",
+    "sharp": "^0.34.5",
+    "udf-cli": "^0.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

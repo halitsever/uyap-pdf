@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF to UDF Converter — Free Online UYAP UDF Tool</title>
+    <meta
+      name="description"
+      content="Convert PDF files to the Turkish UYAP UDF format for free, right in your browser. Files never leave your device and pages are preserved pixel-perfectly. No signup."
+    />
+    <link rel="canonical" href="https://halitsever.github.io/udf-converter/en/" />
+    <link rel="alternate" hreflang="tr" href="https://halitsever.github.io/udf-converter/" />
+    <link rel="alternate" hreflang="en" href="https://halitsever.github.io/udf-converter/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://halitsever.github.io/udf-converter/" />
+    <link rel="icon" type="image/svg+xml" href="/udf-converter/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PDF to UDF Converter — Free Online UYAP UDF Tool" />
+    <meta
+      property="og:description"
+      content="Convert PDF files to the Turkish UYAP UDF format for free, right in your browser. Files never leave your device."
+    />
+    <meta property="og:url" content="https://halitsever.github.io/udf-converter/en/" />
+    <meta property="og:image" content="https://halitsever.github.io/udf-converter/og-en.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://halitsever.github.io/udf-converter/en/#app",
+            "name": "UDF Converter",
+            "url": "https://halitsever.github.io/udf-converter/en/",
+            "description": "Free browser-based tool that converts PDF files into the UDF format used by Türkiye's UYAP judicial network.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "en",
+            "browserRequirements": "Requires JavaScript",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "FAQPage",
+            "inLanguage": "en",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Will the generated UDF open in UYAP?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The output is a valid UDF document compatible with the UYAP Document Editor and UYAP portals. You can open it in the editor to verify before filing."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I edit the text inside the UDF?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Pages are embedded as images, like a scanned document. The layout is preserved pixel-perfectly, but the text is not editable. It is ideal for documents that are ready to file."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I convert Word (DOCX) documents?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Export to PDF first (File → Save As → PDF in Word), then convert the PDF here. Fonts, tables, headers and footers are all preserved exactly."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a file size limit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No fixed limit, but conversion uses browser memory, so very large PDFs with hundreds of pages may struggle. Split such files before converting."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="wordmark" href="/udf-converter/en/">UDF Converter<span class="dot">.</span></a>
+        <nav>
+          <a href="#how">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://github.com/halitsever/udf-converter">GitHub</a>
+          <a href="/udf-converter/" lang="tr" hreflang="tr">TR</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="hero">
+          <p class="eyebrow">Free<span class="sep">•</span>Runs in your browser<span class="sep">•</span>Nothing is uploaded</p>
+          <h1>Convert PDF to UDF</h1>
+          <p class="lede">
+            Create the <strong>.udf</strong> file that Türkiye's UYAP Document Editor expects, in seconds.
+            Your pages are preserved pixel-perfectly at high resolution.
+          </p>
+
+          <div class="sheet" id="tool">
+            <button class="dropzone" id="dropzone" type="button">
+              <span class="icon" aria-hidden="true">⚖</span>
+              <strong>Drop your PDF here</strong>
+              <span class="hint">or click to choose a file — one file at a time</span>
+            </button>
+            <input type="file" id="file-input" accept="application/pdf,.pdf" hidden />
+          </div>
+          <p class="tool-note" id="tool-note">
+            Conversion happens on your device; the PDF is never sent to a server.
+          </p>
+          <noscript>
+            <p class="error">This tool runs in your browser and requires JavaScript. Please enable JavaScript.</p>
+          </noscript>
+        </section>
+
+        <section id="how" aria-labelledby="how-h">
+          <h2 id="how-h">PDF to UDF in three steps</h2>
+          <ol class="steps">
+            <li>
+              <div>
+                <strong>Choose your PDF</strong>
+                <span>A petition, report, or any document. Drag it onto the sheet above or click to pick it.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Wait for the conversion</strong>
+                <span>Each page is rendered at 200 DPI in your browser and embedded into a UDF document.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Download the UDF</strong>
+                <span>Open the .udf file in the UYAP Document Editor or file it directly through UYAP.</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="udf-h">
+          <div class="folder-block">
+            <h2 id="udf-h">What is a UDF file?</h2>
+            <p>
+              UDF (UYAP Document Format) is the official document format of <strong>UYAP</strong>,
+              Türkiye's National Judiciary Informatics System. Lawyers, citizens and court staff file
+              petitions, statements and reports through UYAP in this format.
+            </p>
+            <p>
+              Since UDF files only open in the UYAP Document Editor, you cannot file a plain PDF directly.
+              This tool turns your PDF into a valid UDF document: every page is embedded as a
+              high-resolution image, so the document looks exactly like the original.
+            </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="privacy-h">
+          <h2 id="privacy-h">Your file never leaves your device</h2>
+          <p>
+            Legal documents are sensitive, so the entire conversion runs inside your browser: the PDF is
+            read, rendered and repackaged as UDF on your own device. Nothing is uploaded anywhere, and the
+            page keeps working offline once loaded.
+          </p>
+          <p>
+            The tool is open source — you can inspect the full code
+            <a href="https://github.com/halitsever/udf-converter">on GitHub</a>.
+          </p>
+        </section>
+
+        <section id="faq" class="faq" aria-labelledby="faq-h">
+          <h2 id="faq-h">Frequently asked questions</h2>
+          <details>
+            <summary>Will the generated UDF open in UYAP?</summary>
+            <p>
+              Yes. The output is a valid UDF document compatible with the UYAP Document Editor and UYAP
+              portals. You can open it in the editor to verify before filing.
+            </p>
+          </details>
+          <details>
+            <summary>Can I edit the text inside the UDF?</summary>
+            <p>
+              No. Pages are embedded as images, like a scanned document. The layout is preserved
+              pixel-perfectly, but the text is not editable. It is ideal for documents that are ready to file.
+            </p>
+          </details>
+          <details>
+            <summary>Can I convert Word (DOCX) documents?</summary>
+            <p>
+              Export to PDF first (File → Save As → PDF in Word), then convert the PDF here. Fonts, tables,
+              headers and footers are all preserved exactly.
+            </p>
+          </details>
+          <details>
+            <summary>Is there a file size limit?</summary>
+            <p>
+              No fixed limit, but conversion uses browser memory, so very large PDFs with hundreds of pages
+              may struggle. Split such files before converting.
+            </p>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>UDF Converter — open source, MIT license</span>
+        <span>
+          <a href="https://github.com/halitsever/udf-converter">GitHub</a> ·
+          <a href="/udf-converter/" lang="tr" hreflang="tr">Türkçe</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
