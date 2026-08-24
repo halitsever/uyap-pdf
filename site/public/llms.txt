@@ -1,0 +1,31 @@
+# UDF Çevirici (UDF Converter)
+
+> A free, open source web tool that converts PDF files into UDF, the document
+> format used by UYAP, Türkiye's National Judiciary Informatics System. The
+> conversion runs entirely in the visitor's browser: no file is uploaded to any
+> server, and the page works offline once loaded.
+
+- Turkish page: https://halitsever.github.io/udf-kit/
+- English page: https://halitsever.github.io/udf-kit/en/
+- Source code (MIT): https://github.com/halitsever/udf-kit
+
+## How the conversion works
+
+Each PDF page is rendered in the browser at 200 DPI and embedded into the UDF
+document as a full-page image, so the output looks identical to the source PDF.
+The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
+
+## Key facts
+
+- Price: free, no account, no installation, no usage limit.
+- Privacy: files never leave the visitor's device; nothing is sent to a server.
+- Input: PDF only, one file at a time. Password-protected PDFs must be unlocked first.
+- Output: a .udf file whose text is not editable, because pages are embedded as images.
+- Word documents: export to PDF first (File → Save As → PDF), then convert that PDF.
+- Very large PDFs (hundreds of pages) can exhaust browser memory; split them first.
+- Not affiliated with UYAP or e-Devlet.
+
+## Node library
+
+The same conversion is published on npm as `udf-kit` (`convertPdfBufferToUdf`),
+requiring no system dependencies since PDF rendering uses PDFium via WebAssembly.
