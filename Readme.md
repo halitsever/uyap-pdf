@@ -25,12 +25,12 @@ A PDF to UDF converter and UDF (UYAP file type) toolkit for JavaScript.<br>
 </p>
 
 ```sh
-npm install udf-kit
+npm install uyap-udf
 ```
 
 ```ts
 import { readFile, writeFile } from "node:fs/promises";
-import { convertPdfBufferToUdf } from "udf-kit";
+import { convertPdfBufferToUdf } from "uyap-udf";
 
 const pdf = await readFile("document.pdf");
 const outcome = await convertPdfBufferToUdf(pdf);

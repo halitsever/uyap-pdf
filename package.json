@@ -1,5 +1,5 @@
 {
-  "name": "udf-kit",
+  "name": "uyap-udf",
   "version": "0.1.0",
   "description": "Convert PDF documents to UYAP UDF by embedding rasterized page images.",
   "type": "module",
