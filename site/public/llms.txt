@@ -5,9 +5,9 @@
 > conversion runs entirely in the visitor's browser: no file is uploaded to any
 > server, and the page works offline once loaded.
 
-- Turkish page: https://halitsever.github.io/udf-kit/
-- English page: https://halitsever.github.io/udf-kit/en/
-- Source code (MIT): https://github.com/halitsever/udf-kit
+- Turkish page: https://halitsever.github.io/uyap-pdf/
+- English page: https://halitsever.github.io/uyap-pdf/en/
+- Source code (MIT): https://github.com/halitsever/uyap-pdf
 
 ## How the conversion works
 
@@ -27,5 +27,5 @@ The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
 
 ## Node library
 
-The same conversion is published on npm as `udf-kit` (`convertPdfBufferToUdf`),
+The same conversion is published on npm as `uyap-pdf` (`convertPdfBufferToUdf`),
 requiring no system dependencies since PDF rendering uses PDFium via WebAssembly.

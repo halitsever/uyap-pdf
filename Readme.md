@@ -6,7 +6,7 @@
 <p align="center">
 A PDF to UDF converter and UDF (UYAP file type) toolkit for JavaScript.<br>
 <br/>
-🌐 <a href="https://halitsever.github.io/udf-kit/">Try it in the browser</a>: free, and files never leave your device.<br>
+🌐 <a href="https://halitsever.github.io/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever"/>
 </p>
@@ -51,7 +51,7 @@ npm test      # unit tests
 npm run build # production build to site/dist
 ```
 
-<p align="center" href="https://github.com/halitsever/udf-kit/issues">
+<p align="center" href="https://github.com/halitsever/uyap-pdf/issues">
 <img src="https://halitsever-api.vercel.app/api/issue"/>
 </p>
 

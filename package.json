@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/halitsever/udf-kit.git"
+    "url": "git+https://github.com/halitsever/uyap-pdf.git"
   },
-  "homepage": "https://halitsever.github.io/udf-kit/",
-  "bugs": "https://github.com/halitsever/udf-kit/issues",
+  "homepage": "https://halitsever.github.io/uyap-pdf/",
+  "bugs": "https://github.com/halitsever/uyap-pdf/issues",
   "author": "Halit Sever",
   "engines": {
     "node": ">=20"

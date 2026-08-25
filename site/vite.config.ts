@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/udf-kit/",
+  base: "/uyap-pdf/",
   build: {
     rollupOptions: {
       input: {
