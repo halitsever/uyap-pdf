@@ -29,6 +29,10 @@ updates:
       npm-site-major:
         patterns: ["*"]
         update-types: [major]
+    # Node types stay on the Node version CI and the deploy run, so code cannot use newer Node APIs.
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
