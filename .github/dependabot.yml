@@ -37,6 +37,9 @@ updates:
       # udf-cli 0.5 imports node:zlib, which breaks the browser build of the site.
       - dependency-name: "udf-cli"
         update-types: ["version-update:semver-minor"]
+      # Node types stay on the Node version CI and the deploy run, so code cannot use newer Node APIs.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /

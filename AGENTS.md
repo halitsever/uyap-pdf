@@ -16,11 +16,12 @@ CI (`.github/workflows/ci.yml`) runs two jobs on Node 22. Run the one for the pa
 - There are two lockfiles, `package-lock.json` and `site/package-lock.json`, and Dependabot bumps each monthly. Commit only the lockfile of the project you changed.
 - Both `package.json` files force `zod` through `overrides` to patch a security alert. Keep that override when updating dependencies.
 - `site/src/buffer-shim.ts` has to be imported before `udf-cli`, because JSZip checks for `Buffer` when it loads.
+- pdf.js loads its CMaps, ICC profile, standard fonts and wasm decoders by URL at runtime. The `pdfjs-assets` plugin in `site/vite.config.ts` serves them under `/uyap-pdf/pdfjs/`, and `site/src/convert-pdf.ts` passes those URLs to `getDocument`. Keep both in step when upgrading `pdfjs-dist`.
 - The repo is `uyap-pdf`, the npm package is `uyap-udf`. Changes to `package.json` metadata reach npm only with the owner's next publish.
 
 ## Site and deploy
 
-- `site/` is a Vite multi-page build with `base: "/uyap-pdf/"`. The pages are `site/index.html` (Turkish, x-default) and `site/en/index.html`, both listed in `build.rollupOptions.input`.
+- `site/` is a Vite multi-page build with `base: "/uyap-pdf/"`. The pages are `site/index.html` (Turkish, x-default) and `site/en/index.html`, both listed in `build.rolldownOptions.input`.
 - Every push to `main` runs `.github/workflows/deploy.yml`, which tests and builds `site/` and deploys `site/dist` to https://halitsever.github.io/uyap-pdf/. `dist` is gitignored.
 - SEO lives in each page's `<head>` (canonical, hreflang, Open Graph, JSON-LD) and in `site/public/` (`robots.txt`, `sitemap.xml`, `llms.txt`, `og-tr.png`, `og-en.png`).
 - When you add a page, add it to the rollup inputs, `sitemap.xml`, the hreflang links of the other pages and `site/public/llms.txt`.
