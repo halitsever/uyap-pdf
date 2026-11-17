@@ -28,6 +28,8 @@ Convert PDF to UYAP UDF files in the browser or with Node.js: a free online PDF 
 npm install uyap-udf
 ```
 
+Requires Node.js 22 or newer.
+
 ```ts
 import { readFile, writeFile } from "node:fs/promises";
 import { convertPdfBufferToUdf } from "uyap-udf";
