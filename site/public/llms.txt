@@ -27,5 +27,5 @@ The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
 
 ## Node library
 
-The same conversion is published on npm as `uyap-pdf` (`convertPdfBufferToUdf`),
+The same conversion is published on npm as `uyap-udf` (`convertPdfBufferToUdf`),
 requiring no system dependencies since PDF rendering uses PDFium via WebAssembly.
