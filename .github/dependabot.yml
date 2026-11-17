@@ -33,6 +33,10 @@ updates:
       npm-site-major:
         patterns: ["*"]
         update-types: [major]
+    ignore:
+      # udf-cli 0.5 imports node:zlib, which breaks the browser build of the site.
+      - dependency-name: "udf-cli"
+        update-types: ["version-update:semver-minor"]
 
   - package-ecosystem: github-actions
     directory: /
