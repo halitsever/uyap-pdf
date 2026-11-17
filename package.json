@@ -22,7 +22,7 @@
   "bugs": "https://github.com/halitsever/uyap-pdf/issues",
   "author": "Halit Sever",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
     "build": "tsc",
@@ -46,15 +46,15 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@hyzyla/pdfium": "^2.1.13",
+    "@hyzyla/pdfium": "^3.0.0",
     "pizzip": "^3.2.0",
     "sharp": "^0.35.5",
     "udf-cli": "^0.4.3"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
+    "@types/node": "^22.20.5",
     "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "typescript": "^7.0.2"
   },
   "overrides": {
     "zod": "^4.6.6"

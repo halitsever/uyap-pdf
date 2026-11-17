@@ -32,8 +32,9 @@ export async function rasterizePdfPagesToPng(pdf: Buffer, dpi = 200): Promise<Bu
   try {
     const pngs: Buffer[] = [];
     for (const page of document.pages()) {
-      // The bitmap render is requested with REVERSE_BYTE_ORDER, so data arrives as RGBA.
-      const { data, width, height } = await page.render({ scale: dpi / 72, render: "bitmap" });
+      const { data, width, height } = await page.render({ scale: dpi / 72, render: "bitmap", colorSpace: "RGBA" });
+      // PDFium keeps rendered pages loaded until closed, which adds up on long documents.
+      page.close();
       const png = await sharp(data, { raw: { width, height, channels: 4 } })
         .removeAlpha()
         .png()
