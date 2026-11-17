@@ -5,17 +5,9 @@
 > conversion runs entirely in the visitor's browser: no file is uploaded to any
 > server, and the page works offline once loaded.
 
-- Turkish page: https://halitsever.github.io/uyap-pdf/
-- English page: https://halitsever.github.io/uyap-pdf/en/
-- Source code (MIT): https://github.com/halitsever/uyap-pdf
-
-## How the conversion works
-
 Each PDF page is rendered in the browser at 200 DPI and embedded into the UDF
 document as a full-page image, so the output looks identical to the source PDF.
 The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
-
-## Key facts
 
 - Price: free, no account, no installation, no usage limit.
 - Privacy: files never leave the visitor's device; nothing is sent to a server.
@@ -25,7 +17,18 @@ The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
 - Very large PDFs (hundreds of pages) can exhaust browser memory; split them first.
 - Not affiliated with UYAP or e-Devlet.
 
-## Node library
+The same conversion is published on npm as `uyap-udf` (`npm install uyap-udf`,
+then `convertPdfBufferToUdf`), requiring no system dependencies since PDF
+rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
+`{ ok: true, udf }` or `{ ok: false, error }` instead of throwing.
 
-The same conversion is published on npm as `uyap-udf` (`convertPdfBufferToUdf`),
-requiring no system dependencies since PDF rendering uses PDFium via WebAssembly.
+## Docs
+
+- [PDF'ten UDF'ye Çevirme](https://halitsever.github.io/uyap-pdf/): the converter in Turkish, with steps, privacy notes and FAQ
+- [PDF to UDF Converter](https://halitsever.github.io/uyap-pdf/en/): the same page in English
+- [Library README](https://github.com/halitsever/uyap-pdf/blob/main/Readme.md): install and API of the `uyap-udf` Node library
+
+## Optional
+
+- [Source](https://github.com/halitsever/uyap-pdf): repository
+- [npm](https://www.npmjs.com/package/uyap-udf): package page
