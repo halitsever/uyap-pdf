@@ -1,14 +1,14 @@
 <p align="center" class="logo-section">
-<img src="https://i.ibb.co/NrPh9xP/image.png" height="80" width="80"/>
+<img src="https://i.ibb.co/NrPh9xP/image.png" height="80" width="80" alt="uyap-udf logo"/>
 </br>
 <img src="https://halitsever-api.vercel.app/api/repo-title?title=uyap-udf">
 
 <p align="center">
-A PDF to UDF converter and UDF (UYAP file type) toolkit for JavaScript.<br>
+Convert PDF to UYAP UDF files in the browser or with Node.js: a free online PDF to UDF converter and a TypeScript library for UYAP documents.<br>
 <br/>
 🌐 <a href="https://halitsever.github.io/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
 <br/>
-<img src="https://img.shields.io/github/sponsors/halitsever"/>
+<img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>
 </p>
 
@@ -53,6 +53,11 @@ npm run build # production build to site/dist
 
 <p align="center" href="https://github.com/halitsever/uyap-pdf/issues">
 <img src="https://halitsever-api.vercel.app/api/issue"/>
+</p>
+
+<p align="center">
+Found a bug or have an idea? Open an <a href="https://github.com/halitsever/uyap-pdf/issues">issue</a>.<br/>
+Read the <a href=".github/CONTRIBUTING.md">contributing guide</a> before sending a pull request.
 </p>
 
 <p align="center">

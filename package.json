@@ -1,7 +1,7 @@
 {
   "name": "uyap-udf",
   "version": "0.1.0",
-  "description": "Convert PDF documents to UYAP UDF by embedding rasterized page images.",
+  "description": "PDF to UDF converter for UYAP: turns PDF documents into UYAP UDF files by embedding rasterized page images. Node.js and TypeScript.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -33,7 +33,16 @@
     "udf",
     "uyap",
     "pdf",
-    "converter"
+    "converter",
+    "pdf-to-udf",
+    "udf-converter",
+    "uyap-udf",
+    "uyap-dokuman",
+    "pdf-converter",
+    "legal-tech",
+    "turkey",
+    "pdfium",
+    "typescript"
   ],
   "license": "MIT",
   "dependencies": {
