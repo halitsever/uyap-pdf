@@ -21,10 +21,11 @@ CI (`.github/workflows/ci.yml`) runs two jobs on Node 22. Run the one for the pa
 
 ## Site and deploy
 
-- `site/` is a Vite multi-page build with `base: "/uyap-pdf/"`. The pages are `site/index.html` (Turkish, x-default) and `site/en/index.html`, both listed in `build.rolldownOptions.input`.
+- `site/` is a Vite multi-page build with `base: "/uyap-pdf/"`. The pages are `site/index.html` (Turkish, x-default), `site/en/index.html` and two Turkish-only guides, `site/udf-dosyasi-nedir-nasil-acilir/` and `site/word-udf-cevirme/`, all listed in `build.rolldownOptions.input`. The guides load `src/guide.ts`, which pulls in the styles without the converter.
 - Every push to `main` runs `.github/workflows/deploy.yml`, which tests and builds `site/` and deploys `site/dist` to https://halitsever.github.io/uyap-pdf/. `dist` is gitignored.
 - SEO lives in each page's `<head>` (canonical, hreflang, Open Graph, JSON-LD) and in `site/public/` (`robots.txt`, `sitemap.xml`, `llms.txt`, `og-tr.png`, `og-en.png`).
 - When you add a page, add it to the rollup inputs, `sitemap.xml`, the hreflang links of the other pages and `site/public/llms.txt`.
+- The guides name UYAP Doküman Editörü commands (`PDF Olarak Kaydet`, `DOC Olarak Kaydet`) and link only to official pages on uyap.gov.tr. Check those against https://www.uyap.gov.tr/Uyap-Editor before changing them.
 - The `FAQPage` JSON-LD repeats the visible "Sık sorulan sorular" section. Edit both together, in Turkish and English.
 
 ## Conventions

@@ -37,6 +37,8 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, "index.html"),
         en: resolve(import.meta.dirname, "en/index.html"),
+        udfGuide: resolve(import.meta.dirname, "udf-dosyasi-nedir-nasil-acilir/index.html"),
+        wordGuide: resolve(import.meta.dirname, "word-udf-cevirme/index.html"),
       },
     },
   },
