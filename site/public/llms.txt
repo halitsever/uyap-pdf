@@ -1,8 +1,8 @@
 # UDF Çevirici (UDF Converter)
 
-> A free, open source web tool that converts PDF files into UDF, the document
-> format used by UYAP, Türkiye's National Judiciary Informatics System, and UDF
-> files back into PDF. The conversion runs entirely in the visitor's browser: no
+> A free, open source web tool that converts PDF and Word files into UDF, the
+> document format used by UYAP, Türkiye's National Judiciary Informatics System,
+> and UDF files back into PDF and Word. The conversion runs entirely in the visitor's browser: no
 > file is uploaded to any server, and the page works offline once loaded.
 
 Each PDF page is rendered in the browser at 200 DPI and embedded into the UDF
@@ -13,7 +13,7 @@ The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
 - Privacy: files never leave the visitor's device; nothing is sent to a server.
 - Input: PDF only, one file at a time. Password-protected PDFs must be unlocked first.
 - Output: a .udf file whose text is not editable, because pages are embedded as images.
-- Word documents: export to PDF first (File → Save As → PDF), then convert that PDF.
+- Word documents: use the Word to UDF page below for editable text, or export to PDF first to keep the exact look as page images.
 - Very large PDFs (hundreds of pages) can exhaust browser memory; split them first.
 - Not affiliated with UYAP or e-Devlet.
 
@@ -27,7 +27,17 @@ the UDF viewer page uses the same code to open and read a .udf file without
 installing UYAP Doküman Editörü. An e-signature is not carried into the PDF and
 the PDF is not an official copy, so the original UDF should be kept for UYAP.
 
-The same conversion is published on npm as `uyap-udf` (`npm install uyap-udf`,
+Two more pages convert between Word and UDF in the browser. Word to UDF reads a
+.docx file (styles, numbering, theme fonts, tables, images, header, footer, page
+setup) and writes a UDF with real, editable text in the structure the UYAP
+Doküman Editörü saves: one CDATA text pool, elements pointing into it by offset,
+and the editor's own attribute names. Legacy binary .doc files are not read; they
+must be saved as .docx in Word first. UDF to Word turns a .udf file into an
+editable .docx with paragraphs, run formatting, tab stops, lists, tables, images,
+page setup, header, footer and page numbers. Neither direction carries an
+e-signature.
+
+The PDF to UDF conversion is published on npm as `uyap-udf` (`npm install uyap-udf`,
 then `convertPdfBufferToUdf`), requiring no system dependencies since PDF
 rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 `{ ok: true, udf }` or `{ ok: false, error }` instead of throwing.
@@ -40,7 +50,10 @@ rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 - [UDF to PDF Converter](https://halitsever.github.io/uyap-pdf/en/udf-to-pdf/): the same converter in English
 - [UDF Görüntüleyici](https://halitsever.github.io/uyap-pdf/udf-goruntuleyici/): Turkish page to open and read a .udf file in the browser, with an optional PDF download
 - [UDF Dosyası Nedir, Nasıl Açılır?](https://halitsever.github.io/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
-- [Word Belgesini UDF'ye Çevirme](https://halitsever.github.io/uyap-pdf/word-udf-cevirme/): Turkish guide to Word to UDF (via PDF as page images, or pasted into the editor as editable text) and UDF to Word with the editor's DOC export
+- [Word UDF Çevirme](https://halitsever.github.io/uyap-pdf/word-udf-cevirme/): Word (.docx) to UDF converter in Turkish, with what the UDF keeps, limitations, other routes and FAQ
+- [Word to UDF Converter](https://halitsever.github.io/uyap-pdf/en/word-to-udf/): the same converter in English
+- [UDF Word Çevirme](https://halitsever.github.io/uyap-pdf/udf-word-cevirme/): UDF to Word (.docx) converter in Turkish, with what the Word file keeps, limitations and FAQ
+- [UDF to Word Converter](https://halitsever.github.io/uyap-pdf/en/udf-to-word/): the same converter in English
 - [Library README](https://github.com/halitsever/uyap-pdf/blob/main/Readme.md): install and API of the `uyap-udf` Node library
 
 ## Optional
