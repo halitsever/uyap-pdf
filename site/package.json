@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --import tsx --test test/*.test.ts"
+    "test": "node --import tsx --test test/*.test.ts",
+    "test:e2e": "node --import tsx test/e2e/udf-to-pdf.e2e.ts"
   },
   "dependencies": {
     "@fontsource/source-sans-3": "^5.3.1",
@@ -15,6 +16,7 @@
     "buffer": "^6.0.3",
     "jszip": "^3.10.2",
     "pdfjs-dist": "^6.5.438",
+    "pdfmake": "^0.3.13",
     "udf-cli": "^0.4.4"
   },
   "devDependencies": {
