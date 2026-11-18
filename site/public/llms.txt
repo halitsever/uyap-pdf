@@ -1,9 +1,9 @@
 # UDF Çevirici (UDF Converter)
 
 > A free, open source web tool that converts PDF files into UDF, the document
-> format used by UYAP, Türkiye's National Judiciary Informatics System. The
-> conversion runs entirely in the visitor's browser: no file is uploaded to any
-> server, and the page works offline once loaded.
+> format used by UYAP, Türkiye's National Judiciary Informatics System, and UDF
+> files back into PDF. The conversion runs entirely in the visitor's browser: no
+> file is uploaded to any server, and the page works offline once loaded.
 
 Each PDF page is rendered in the browser at 200 DPI and embedded into the UDF
 document as a full-page image, so the output looks identical to the source PDF.
@@ -17,6 +17,16 @@ The result opens in the UYAP Doküman Editörü and can be filed through UYAP.
 - Very large PDFs (hundreds of pages) can exhaust browser memory; split them first.
 - Not affiliated with UYAP or e-Devlet.
 
+The site also converts the other way. The UDF to PDF page reads a .udf file in
+the browser (the ZIP's content.xml: text pool, paragraphs, runs, tabs, tables,
+images, header, footer, page numbers, letterhead background, page format) and
+lays it out as a PDF with real, selectable text using pdfmake and the open
+licensed Tinos, Arimo and Cousine fonts, which share the metrics of Times New
+Roman, Arial and Courier New. The pages are shown on the page before download;
+the UDF viewer page uses the same code to open and read a .udf file without
+installing UYAP Doküman Editörü. An e-signature is not carried into the PDF and
+the PDF is not an official copy, so the original UDF should be kept for UYAP.
+
 The same conversion is published on npm as `uyap-udf` (`npm install uyap-udf`,
 then `convertPdfBufferToUdf`), requiring no system dependencies since PDF
 rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
@@ -26,6 +36,9 @@ rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 
 - [PDF UDF Çevirme](https://halitsever.github.io/uyap-pdf/): the converter in Turkish, with steps, privacy notes and FAQ
 - [PDF to UDF Converter](https://halitsever.github.io/uyap-pdf/en/): the same page in English
+- [UDF PDF Çevirme](https://halitsever.github.io/uyap-pdf/udf-pdf-cevirme/): UDF to PDF converter in Turkish, with what the PDF keeps, limitations and FAQ
+- [UDF to PDF Converter](https://halitsever.github.io/uyap-pdf/en/udf-to-pdf/): the same converter in English
+- [UDF Görüntüleyici](https://halitsever.github.io/uyap-pdf/udf-goruntuleyici/): Turkish page to open and read a .udf file in the browser, with an optional PDF download
 - [UDF Dosyası Nedir, Nasıl Açılır?](https://halitsever.github.io/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
 - [Word Belgesini UDF'ye Çevirme](https://halitsever.github.io/uyap-pdf/word-udf-cevirme/): Turkish guide to Word to UDF (via PDF as page images, or pasted into the editor as editable text) and UDF to Word with the editor's DOC export
 - [Library README](https://github.com/halitsever/uyap-pdf/blob/main/Readme.md): install and API of the `uyap-udf` Node library
