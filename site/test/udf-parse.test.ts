@@ -5,7 +5,7 @@ import type { Block, Paragraph, Table, TextRun } from "../src/udf/model.js";
 import { numberLabel, parseContentXml, readUdf } from "../src/udf/parse.js";
 import { parseXml, textOf, type XmlElement } from "../src/udf/xml.js";
 import { pagesToUdf } from "../src/udf-build.js";
-import { TURKISH, fieldsFixture, headerFooterFixture, listsFixture, solidPng, tablesFixture, zipUdf } from "./udf-fixtures.js";
+import { Pool, TURKISH, contentXml, fieldsFixture, headerFooterFixture, listsFixture, solidPng, tablesFixture, zipUdf } from "./udf-fixtures.js";
 
 const paragraphs = (blocks: Block[]) => blocks.filter((b): b is Paragraph => b.type === "paragraph");
 const tables = (blocks: Block[]) => blocks.filter((b): b is Table => b.type === "table");
@@ -166,4 +166,51 @@ test("numberLabel covers the editor's numbering formats", () => {
   assert.equal(numberLabel("NUMBER_TYPE_CHAR_SMALL_DOT", 28), "ab.");
   assert.equal(numberLabel("NUMBER_TYPE_ROMAN_SMALL_DOT", 14), "xiv.");
   assert.equal(numberLabel("NUMBER_TYPE_CHAR_BIG_PARENTHESIS", 2), "B)");
+  // The editor's own spelling.
+  assert.equal(numberLabel("NUMBER_TYPE_NUMBER_PARANTHESE", 4), "4)");
+  assert.equal(numberLabel("NUMBER_TYPE_ROMAN_SMALL_D_PARANTHESE", 3), "(iii)");
+});
+
+test("tab stops count from LeftIndent and list levels from 1, as UYAP Doküman Editörü 5.4.20 lays them out", () => {
+  const p = new Pool();
+  const elements = [
+    p.paragraph('LeftIndent="36" TabSet="108:0:0"', p.content("LI36"), p.tab(), p.content("x")),
+    p.paragraph('LeftIndent="36" Hanging="36" TabSet="108:0:0"', p.content("H"), p.tab(), p.content("x")),
+    p.paragraph('Numbered="true" NumberType="NUMBER_TYPE_NUMBER_DOT" ListId="7" ListLevel="1"', p.content("bir")),
+    p.paragraph('Numbered="true" NumberType="NUMBER_TYPE_NUMBER_DOT" ListId="7" ListLevel="2"', p.content("alt")),
+    p.paragraph('Numbered="true" NumberType="NUMBER_TYPE_NUMBER_DOT" ListId="7" ListLevel="0"', p.content("iki")),
+  ].join("");
+  const doc = parseContentXml(contentXml(p, { elements }));
+  const [a, b, ...items] = paragraphs(doc.body);
+  assert.equal(a.tabStops![0].position, 144);
+  assert.deepEqual([b.leftIndent, b.firstLineIndent, b.tabStops![0].position], [72, -36, 144]);
+  assert.deepEqual(
+    items.map((i) => [i.list!.level, i.list!.label]),
+    [
+      [0, "1."],
+      [1, "1."],
+      [0, "2."],
+    ],
+  );
+});
+
+test("a merged row keeps its own columnSpans, as the editor saves cells it combined", () => {
+  // Saved by UYAP Doküman Editörü 5.4.20 after merging A1 and B1 of a 3 x 3 table.
+  const xml =
+    '<?xml version="1.0" encoding="UTF-8" ?> \n\n<template format_id="1.8" >\n<content><![CDATA[A1\nB1  \nC1\nA2\nB2\nC2\n]]></content>' +
+    '<properties><pageFormat mediaSizeName="1" leftMargin="42.52" rightMargin="28.35" topMargin="42.52" bottomMargin="42.51999999999996" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n' +
+    '<elements resolver="hvl-default" >\n<table tableName="T" columnCount="3" columnSpans="100,100,100" border="borderCell">' +
+    '<row rowName="row1" rowType="dataRow" columnSpans="100,100"><cell><paragraph Alignment="0"><content startOffset="0" length="3" /></paragraph><paragraph Alignment="0"><content startOffset="3" length="5" /></paragraph></cell>' +
+    '<cell><paragraph Alignment="0"><content startOffset="8" length="3" /></paragraph></cell></row>' +
+    '<row rowName="row2" rowType="dataRow"><cell><paragraph Alignment="0"><content startOffset="11" length="3" /></paragraph></cell><cell><paragraph Alignment="0"><content startOffset="14" length="3" /></paragraph></cell>' +
+    '<cell><paragraph Alignment="0"><content startOffset="17" length="3" /></paragraph></cell></row></table>\n</elements>\n' +
+    '<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>';
+  const [t] = tables(parseContentXml(xml).body);
+  assert.deepEqual(
+    t.rows.map((r) => r.cells.map((c) => c.colspan)),
+    [
+      [2, 1],
+      [1, 1, 1],
+    ],
+  );
 });

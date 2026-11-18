@@ -367,7 +367,8 @@ function textInlines(text: string, style: RunStyle, field?: string): Inline[] {
 
 const ALIGNMENTS: Record<string, Alignment> = { "0": "left", "1": "center", "2": "right", "3": "justify" };
 
-function parseTabSet(value: string | undefined): TabStop[] | null {
+/** The editor measures stops from the paragraph's LeftIndent; the model keeps them from the margin. */
+function parseTabSet(value: string | undefined, origin: number): TabStop[] | null {
   if (!value) return null;
   const stops: TabStop[] = [];
   for (const part of value.split(/[,;]/)) {
@@ -376,7 +377,7 @@ function parseTabSet(value: string | undefined): TabStop[] | null {
     if (!Number.isFinite(position)) continue;
     // Swing TabStop constants, which the editor writes as they are.
     stops.push({
-      position,
+      position: position + origin,
       align: align === "1" ? "right" : align === "2" ? "center" : align === "4" ? "decimal" : "left",
       leader: leader === "1" ? "dots" : leader === "2" ? "hyphens" : leader === "3" ? "underline" : "none",
     });
@@ -396,7 +397,7 @@ function paragraphShell(scope: Scope): Paragraph {
     lineSpacing: Math.max(0, num(lookup(scope, "LineSpacing"), 0)),
     spaceAbove: Math.max(0, num(lookup(scope, "SpaceAbove"), 0)),
     spaceBelow: Math.max(0, num(lookup(scope, "SpaceBelow"), 0)),
-    tabStops: parseTabSet(lookup(scope, "TabSet")),
+    tabStops: parseTabSet(lookup(scope, "TabSet"), num(lookup(scope, "LeftIndent"), 0)),
     list: null,
     inlines: [],
     markStyle: runStyle(scope),
@@ -494,6 +495,7 @@ function parseTable(ctx: Ctx, el: XmlElement, parent: Scope): Table {
         blocks,
       });
     }
+    applyRowSpans(cells, rowEl.attrs.columnSpans, widths);
     const minHeight = Math.max(num(rowEl.attrs.height, 0), num(rowEl.attrs.height_min, 0), rowHeights[rowIndex] || 0);
     rows.push({ minHeight, cells });
   });
@@ -509,6 +511,26 @@ function parseTable(ctx: Ctx, el: XmlElement, parent: Scope): Table {
   const columns = Math.max(columnCount, widest, 1);
   const columnWidths = Array.from({ length: columns }, (_, i) => widths[i] ?? 0);
   return { type: "table", columnWidths, rows };
+}
+
+/** Merged cells are saved as a row with fewer cells and its own `columnSpans`; map each width back onto table columns. */
+function applyRowSpans(cells: TableCell[], spans: string | undefined, grid: number[]): void {
+  if (!spans || grid.length === 0) return;
+  const own = spans.split(",").map((v) => parseFloat(v));
+  if (own.length !== cells.length || own.some((v) => !Number.isFinite(v) || v <= 0)) return;
+  const scale = grid.reduce((a, b) => a + b, 0) / own.reduce((a, b) => a + b, 0);
+  let edge = 0;
+  let column = 0;
+  cells.forEach((cell, i) => {
+    edge += own[i] * scale;
+    let end = column;
+    let at = grid.slice(0, column).reduce((a, b) => a + b, 0);
+    // Take whole columns while the next boundary is closer to this cell's right edge.
+    while (end < grid.length && Math.abs(at + grid[end] - edge) <= Math.abs(at - edge)) at += grid[end++];
+    if (i === cells.length - 1) end = Math.max(end, grid.length);
+    cell.colspan = Math.max(1, end - column);
+    column += cell.colspan;
+  });
 }
 
 const ROMAN: [number, string][] = [
@@ -543,13 +565,25 @@ function letters(n: number): string {
   return out;
 }
 
+/** The editor spells it PARANTHESE: `_D_` puts the number in brackets, `_TRE` ends it with a dash. */
 export function numberLabel(format: string, n: number): string {
-  const suffix = format.includes("PARENTHESIS") ? ")" : ".";
-  if (format.includes("ROMAN_SMALL")) return roman(n) + suffix;
-  if (format.includes("ROMAN_BIG")) return roman(n).toUpperCase() + suffix;
-  if (format.includes("CHAR_SMALL")) return letters(n) + suffix;
-  if (format.includes("CHAR_BIG")) return letters(n).toUpperCase() + suffix;
-  return String(n) + suffix;
+  const [prefix, suffix] = /_D_PARAN/.test(format)
+    ? ["(", ")"]
+    : /PARANTHESE|PARENTHESIS/.test(format)
+      ? ["", ")"]
+      : format.endsWith("_TRE")
+        ? ["", "-"]
+        : ["", "."];
+  const body = format.includes("ROMAN_SMALL")
+    ? roman(n)
+    : format.includes("ROMAN_BIG")
+      ? roman(n).toUpperCase()
+      : format.includes("CHAR_SMALL")
+        ? letters(n)
+        : format.includes("CHAR_BIG")
+          ? letters(n).toUpperCase()
+          : String(n);
+  return prefix + body + suffix;
 }
 
 /** Numbers list items in document order, the way the editor counts them. */
@@ -564,7 +598,8 @@ class ListCounter {
       this.lastKey = null;
       return null;
     }
-    const level = Math.max(0, Math.floor(num(lookup(scope, "ListLevel"), 0)));
+    // The editor counts levels from 1 and treats 0 like 1.
+    const level = Math.max(0, Math.floor(num(lookup(scope, "ListLevel"), 1)) - 1);
     const listId = lookup(scope, "ListId") ?? null;
     if (bulleted) {
       const format = lookup(scope, "BulletType") ?? "BULLET_TYPE_ELLIPSE";
