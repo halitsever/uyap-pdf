@@ -8,12 +8,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --import tsx --test test/*.test.ts",
-    "test:e2e": "node --import tsx test/e2e/udf-to-pdf.e2e.ts"
+    "test:e2e": "node --import tsx test/e2e/udf-to-pdf.e2e.ts && node --import tsx test/e2e/word.e2e.ts"
   },
   "dependencies": {
     "@fontsource/source-sans-3": "^5.3.1",
     "@fontsource/source-serif-4": "^5.3.1",
     "buffer": "^6.0.3",
+    "docx": "^9.15.4",
     "jszip": "^3.10.2",
     "pdfjs-dist": "^6.5.438",
     "pdfmake": "^0.3.13",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
+    "mammoth": "^1.13.0",
     "puppeteer-core": "^25.16.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
