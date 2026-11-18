@@ -24,8 +24,10 @@ rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 
 ## Docs
 
-- [PDF'ten UDF'ye Çevirme](https://halitsever.github.io/uyap-pdf/): the converter in Turkish, with steps, privacy notes and FAQ
+- [PDF UDF Çevirme](https://halitsever.github.io/uyap-pdf/): the converter in Turkish, with steps, privacy notes and FAQ
 - [PDF to UDF Converter](https://halitsever.github.io/uyap-pdf/en/): the same page in English
+- [UDF Dosyası Nedir, Nasıl Açılır?](https://halitsever.github.io/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
+- [Word Belgesini UDF'ye Çevirme](https://halitsever.github.io/uyap-pdf/word-udf-cevirme/): Turkish guide to Word to UDF (via PDF as page images, or pasted into the editor as editable text) and UDF to Word with the editor's DOC export
 - [Library README](https://github.com/halitsever/uyap-pdf/blob/main/Readme.md): install and API of the `uyap-udf` Node library
 
 ## Optional
