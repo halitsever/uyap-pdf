@@ -6,7 +6,7 @@
 <p align="center">
 Convert PDF to UYAP UDF files in the browser or with Node.js: a free online PDF to UDF converter and a TypeScript library for UYAP documents.<br>
 <br/>
-🌐 <a href="https://halitsever.github.io/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
+<a href="https://halitsever.github.io/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>
@@ -16,9 +16,9 @@ Convert PDF to UYAP UDF files in the browser or with Node.js: a free online PDF 
 <img src="https://halitsever-api.vercel.app/api/details"/>
 </p>
 
-- 🖥️ **Web app** - `site/` is a static, browser-only PDF → UDF converter in Turkish and English. GitHub Pages serves it through `.github/workflows/deploy.yml`, and the conversion runs entirely in the browser.
-- 📚 **Node library** - converts PDF documents into UYAP UDF files. It rasterizes each page to a 200 DPI PNG and embeds it as a full-page image, so the output looks exactly like the source. Text-based converters tend to break line spacing, table widths and headers/footers; that cannot happen here.
-- 🔁 **No system dependencies** - PDFium compiled to WebAssembly renders the pages, so a plain `npm install` is enough on macOS, Windows and Linux. For Word documents, export to PDF first (File → Save As → PDF), then convert.
+- **Web app** - `site/` is a static, browser-only PDF → UDF converter in Turkish and English. GitHub Pages serves it through `.github/workflows/deploy.yml`, and the conversion runs entirely in the browser.
+- **Node library** - converts PDF documents into UYAP UDF files. It rasterizes each page to a 200 DPI PNG and embeds it as a full-page image, so the output looks exactly like the source. Text-based converters tend to break line spacing, table widths and headers/footers; that cannot happen here.
+- **No system dependencies** - PDFium compiled to WebAssembly renders the pages, so a plain `npm install` is enough on macOS, Windows and Linux. For Word documents, export to PDF first (File → Save As → PDF), then convert.
 
 <p align="center" >
 <img src="https://halitsever-api.vercel.app/api/installation"/>
