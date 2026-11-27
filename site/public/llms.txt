@@ -49,7 +49,8 @@ rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 - [UDF PDF Çevirme](https://projects.halit.org/uyap-pdf/udf-pdf-cevirme/): UDF to PDF converter in Turkish, with what the PDF keeps, limitations and FAQ
 - [UDF to PDF Converter](https://projects.halit.org/uyap-pdf/en/udf-to-pdf/): the same converter in English
 - [UDF Görüntüleyici](https://projects.halit.org/uyap-pdf/udf-goruntuleyici/): Turkish page to open and read a .udf file in the browser, with an optional PDF download
-- [UDF Dosyası Nedir, Nasıl Açılır?](https://projects.halit.org/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
+- [UDF Nedir?](https://projects.halit.org/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
+- [Blog](https://projects.halit.org/uyap-pdf/blog/): Turkish articles on the UDF format, UYAP Doküman Editörü (versions, Mac, when it does not open), making a UDF, JPG to UDF, opening UDF on a phone, and e-signatures
 - [Word UDF Çevirme](https://projects.halit.org/uyap-pdf/word-udf-cevirme/): Word (.docx) to UDF converter in Turkish, with what the UDF keeps, limitations, other routes and FAQ
 - [Word to UDF Converter](https://projects.halit.org/uyap-pdf/en/word-to-udf/): the same converter in English
 - [UDF Word Çevirme](https://projects.halit.org/uyap-pdf/udf-word-cevirme/): UDF to Word (.docx) converter in Turkish, with what the Word file keeps, limitations and FAQ
