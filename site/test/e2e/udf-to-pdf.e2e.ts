@@ -98,6 +98,8 @@ try {
     await page.setViewport({ width: 1280, height: 900 });
     const foreign: string[] = [];
     page.on("request", (req) => {
+      // The Cloudflare page-view beacon carries no file data.
+      if (/^https:\/\/(static\.)?cloudflareinsights\.com\//.test(req.url())) return;
       if (!req.url().startsWith(ORIGIN) && !req.url().startsWith("blob:") && !req.url().startsWith("data:")) foreign.push(req.url());
       if (req.method() !== "GET") foreign.push(`${req.method()} ${req.url()}`);
     });

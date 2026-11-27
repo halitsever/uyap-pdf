@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://halitsever.github.io/uyap-pdf/sitemap.xml
+Sitemap: https://projects.halit.org/uyap-pdf/sitemap.xml
