@@ -6,7 +6,7 @@
 <p align="center">
 Convert PDF to UYAP UDF files in the browser or with Node.js: a free online PDF to UDF converter and a TypeScript library for UYAP documents.<br>
 <br/>
-<a href="https://halitsever.github.io/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
+<a href="https://projects.halit.org/uyap-pdf/">Try it in the browser</a>: free, and files never leave your device.<br>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>

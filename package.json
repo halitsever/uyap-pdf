@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/halitsever/uyap-pdf.git"
   },
-  "homepage": "https://halitsever.github.io/uyap-pdf/",
+  "homepage": "https://projects.halit.org/uyap-pdf/",
   "bugs": "https://github.com/halitsever/uyap-pdf/issues",
   "author": "Halit Sever",
   "engines": {
