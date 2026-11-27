@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2c47" />
+    <title>UDF ve E-İmza: İmzalı UDF Dosyası Nasıl Anlaşılır</title>
+    <meta name="description" content="E-imzalı bir UDF dosyasında imza nerede durur, PDF ya da Word&#x27;e çevirince imzaya ne olur ve dönüştürülen UDF neden editörde yeniden imzalanmalıdır?" />
+    <link rel="canonical" href="https://projects.halit.org/uyap-pdf/blog/udf-e-imza/" />
+    <link rel="icon" type="image/svg+xml" href="/uyap-pdf/favicon.svg" />
+    <link rel="apple-touch-icon" href="/uyap-pdf/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UDF Çevirici" />
+    <meta property="og:title" content="UDF ve E-İmza: İmzalı UDF Dosyası Nasıl Anlaşılır" />
+    <meta property="og:description" content="E-imzalı bir UDF dosyasında imza nerede durur, PDF ya da Word&#x27;e çevirince imzaya ne olur ve dönüştürülen UDF neden editörde yeniden imzalanmalıdır?" />
+    <meta property="og:url" content="https://projects.halit.org/uyap-pdf/blog/udf-e-imza/" />
+    <meta property="og:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UDF ve E-İmza: İmzalı UDF Dosyası Nasıl Anlaşılır" />
+    <meta name="twitter:description" content="E-imzalı bir UDF dosyasında imza nerede durur, PDF ya da Word&#x27;e çevirince imzaya ne olur ve dönüştürülen UDF neden editörde yeniden imzalanmalıdır?" />
+    <meta name="twitter:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "UDF ve e-imza: imzalı UDF dosyası, dönüştürme ve imzalama",
+            "description": "E-imzalı bir UDF dosyasında imza nerede durur, PDF ya da Word'e çevirince imzaya ne olur ve dönüştürülen UDF neden editörde yeniden imzalanmalıdır?",
+            "url": "https://projects.halit.org/uyap-pdf/blog/udf-e-imza/",
+            "mainEntityOfPage": "https://projects.halit.org/uyap-pdf/blog/udf-e-imza/",
+            "datePublished": "2026-11-27",
+            "dateModified": "2026-11-27",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/uyap-pdf/og-tr.png",
+            "keywords": "udf e imza",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "UDF Çevirici",
+                "item": "https://projects.halit.org/uyap-pdf/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/uyap-pdf/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "UDF ve e-imza: imzalı UDF dosyası, dönüştürme ve imzalama",
+                "item": "https://projects.halit.org/uyap-pdf/blog/udf-e-imza/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'></script>
+  </head>
+  <body>
+    <div class="topstrip">
+      <div class="shell">
+        <span>Bağımsız açık kaynak araç. Resmî bir kurum sitesi değildir.</span>
+        <span class="topstrip-links">
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/uyap-pdf/">
+          <span class="doc-logo" aria-hidden="true">
+            <span class="fold"></span>
+            <i></i><i></i><i></i><i></i>
+            <span class="tag">UDF</span>
+          </span>
+          <span class="brand-text">
+            <strong>UDF Çevirici</strong>
+            <span>PDF → UYAP Doküman Formatı</span>
+          </span>
+        </a>
+        <span class="header-badge">Sunucusuz, tarayıcıda çalışır</span>
+      </div>
+    </header>
+
+    <div class="crumbs">
+      <div class="shell"><a href="/uyap-pdf/">Ana sayfa</a> &nbsp;›&nbsp; <a href="/uyap-pdf/blog/">Blog</a> &nbsp;›&nbsp; <b>UDF ve e-imza</b></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidemenu" aria-label="Sayfalar">
+        <div class="sidemenu-title">SAYFALAR</div>
+        <nav>
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/">UDF nedir?<span class="chev">›</span></a>
+          <a href="/uyap-pdf/blog/">Blog<span class="chev">›</span></a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head"><h1>UDF ve e-imza: imzalı UDF dosyası, dönüştürme ve imzalama</h1></div>
+          <div class="panel-body">
+            <p class="post-meta">Halit Sever · <time datetime="2026-11-27">27 Kasım 2026</time></p>
+            <p class="lead">UYAP'a gönderilen belgelerin çoğu e-imza ya da mobil imza ile imzalanır. UDF dosyasını dönüştürürken ya da başka bir yerden UDF üretirken imzanın ne olacağını bilmek, sonradan yaşanacak bir iade ya da tekrar gönderimi önler.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İmza dosyanın neresinde?</h2></div>
+          <div class="panel-body">
+            <p>
+              UDF bir ZIP arşividir ve belge <code>content.xml</code> dosyasında durur. E-imzalı bir belgede arşive
+              ayrıca <code>sign.sgn</code> adlı bir dosya eklenir. Bu sitedeki UDF okuyucusu da bir dosyanın imzalı
+              olduğunu bu dosyanın varlığından anlar ve <a href="/uyap-pdf/udf-goruntuleyici/">UDF
+              görüntüleyici</a>de imzalı belgeler için bir uyarı gösterir. Formatın geri kalanı
+              <a href="/uyap-pdf/blog/udf-formati-nedir/">UDF formatı nedir?</a> yazısında.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>PDF veya Word'e çevirince imza ne olur?</h2></div>
+          <div class="panel-body">
+            <p>
+              Belgenin içeriği çevrilir, imza çevrilmez. <a href="/uyap-pdf/udf-pdf-cevirme/">UDF PDF çevirme</a> ve
+              <a href="/uyap-pdf/udf-word-cevirme/">UDF Word çevirme</a> araçlarının ürettiği dosyalar imzasız
+              kopyalardır ve resmî suret yerine geçmez. UYAP'a yükleme ya da başka resmî işlemler için asıl UDF
+              dosyasını saklayın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Dönüştürülen UDF imzalı mı?</h2></div>
+          <div class="panel-body">
+            <p>
+              Hayır. <a href="/uyap-pdf/word-udf-cevirme/">Word UDF çevirme</a> ve <a href="/uyap-pdf/">PDF UDF
+              çevirme</a> araçlarının ürettiği UDF dosyalarında <code>sign.sgn</code> yoktur. İmza gerekiyorsa
+              dosyayı UYAP Doküman Editörü'nde açın, kontrol edin ve e-imza ya da mobil imza ile imzalayın. İmza,
+              tarayıcıda çalışan bir araçla atılamaz: imzalama sertifikanız ve kart okuyucunuz ya da mobil imza
+              hattınızla editör üzerinden yapılır.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İmzalama çalışmıyorsa</h2></div>
+          <div class="panel-body">
+            <p>
+              UYAP'ın Editör sayfasına göre e-imza ve m-imza için bilgisayardaki editörün son sürümü olmalı. Editör
+              açılmıyor ya da imza atılamıyorsa sayfanın önerdiği adımlar (güncelleme, <code>.uki</code> klasöründeki
+              ayar dosyalarını silme, temiz kurulum)
+              <a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Editör açılmıyor</a> yazısında sırasıyla
+              anlatılıyor.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İlgili yazılar</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Doküman Editörü açılmıyor: siyah ekran ve imza sorunu</a></li>
+              <li><a href="/uyap-pdf/blog/udf-formati-nedir/">UDF formatı nedir? Bir UDF dosyasının içinde ne var</a></li>
+              <li><a href="/uyap-pdf/blog/udf-nasil-yapilir/">UDF nasıl yapılır? UDF dosyası oluşturmanın üç yolu</a></li>
+            </ul>
+            <p>Bütün yazılar <a href="/uyap-pdf/blog/">blog</a> sayfasında.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>UDF Çevirici, açık kaynak, MIT lisansı. UYAP ve e-Devlet ile bağlantısı yoktur.</span>
+        <span class="links">
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir</a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir</a>
+          <a href="/uyap-pdf/blog/">Blog</a>
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/guide.ts"></script>
+  </body>
+</html>
