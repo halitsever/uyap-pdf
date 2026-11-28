@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2c47" />
+    <title>UYAP için Java: Hangi Sürüm, Javaw ve Java Security Hatası</title>
+    <meta name="description" content="UYAP için Java indirmeli misiniz? Editör ve e-imza için Java ihtiyacı, Javaw bulunamıyor hatası, Path ayarı ve Application Blocked by Java Security çözümü." />
+    <link rel="canonical" href="https://projects.halit.org/uyap-pdf/blog/uyap-java/" />
+    <link rel="icon" type="image/svg+xml" href="/uyap-pdf/favicon.svg" />
+    <link rel="apple-touch-icon" href="/uyap-pdf/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UDF Çevirici" />
+    <meta property="og:title" content="UYAP için Java: Hangi Sürüm, Javaw ve Java Security Hatası" />
+    <meta property="og:description" content="UYAP için Java indirmeli misiniz? Editör ve e-imza için Java ihtiyacı, Javaw bulunamıyor hatası, Path ayarı ve Application Blocked by Java Security çözümü." />
+    <meta property="og:url" content="https://projects.halit.org/uyap-pdf/blog/uyap-java/" />
+    <meta property="og:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UYAP için Java: Hangi Sürüm, Javaw ve Java Security Hatası" />
+    <meta name="twitter:description" content="UYAP için Java indirmeli misiniz? Editör ve e-imza için Java ihtiyacı, Javaw bulunamıyor hatası, Path ayarı ve Application Blocked by Java Security çözümü." />
+    <meta name="twitter:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "UYAP için Java gerekir mi, hatalar nasıl çözülür?",
+            "description": "UYAP için Java indirmeli misiniz? Editör ve e-imza için Java ihtiyacı, Javaw bulunamıyor hatası, Path ayarı ve Application Blocked by Java Security çözümü.",
+            "url": "https://projects.halit.org/uyap-pdf/blog/uyap-java/",
+            "mainEntityOfPage": "https://projects.halit.org/uyap-pdf/blog/uyap-java/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/uyap-pdf/og-tr.png",
+            "keywords": "uyap java indir",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "UDF Çevirici",
+                "item": "https://projects.halit.org/uyap-pdf/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/uyap-pdf/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "UYAP için Java gerekir mi, hatalar nasıl çözülür?",
+                "item": "https://projects.halit.org/uyap-pdf/blog/uyap-java/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'></script>
+  </head>
+  <body>
+    <div class="topstrip">
+      <div class="shell">
+        <span>Bağımsız açık kaynak araç. Resmî bir kurum sitesi değildir.</span>
+        <span class="topstrip-links">
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/uyap-pdf/">
+          <span class="doc-logo" aria-hidden="true">
+            <span class="fold"></span>
+            <i></i><i></i><i></i><i></i>
+            <span class="tag">UDF</span>
+          </span>
+          <span class="brand-text">
+            <strong>UDF Çevirici</strong>
+            <span>PDF → UYAP Doküman Formatı</span>
+          </span>
+        </a>
+        <span class="header-badge">Sunucusuz, tarayıcıda çalışır</span>
+      </div>
+    </header>
+
+    <div class="crumbs">
+      <div class="shell"><a href="/uyap-pdf/">Ana sayfa</a> &nbsp;›&nbsp; <a href="/uyap-pdf/blog/">Blog</a> &nbsp;›&nbsp; <b>UYAP için Java</b></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidemenu" aria-label="Sayfalar">
+        <div class="sidemenu-title">SAYFALAR</div>
+        <nav>
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/">UDF nedir?<span class="chev">›</span></a>
+          <a href="/uyap-pdf/blog/">Blog<span class="chev">›</span></a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head"><h1>UYAP için Java gerekir mi, hatalar nasıl çözülür?</h1></div>
+          <div class="panel-body">
+            <p class="post-meta">Halit Sever · <time datetime="2026-11-28">28 Kasım 2026</time></p>
+            <p class="lead">UYAP ile ilgili programların bir kısmı Java ile çalışır, bir kısmı artık Java istemez. Hangisinin ne istediğini bilmek, gereksiz kurulumdan ve sık görülen iki hatadan kurtarır. Bu yazı UYAP'ın ve Kamu SM'nin kendi açıklamalarına dayanıyor.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Hangi program Java ister?</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li>
+                <strong>UYAP Editör, Mac:</strong> <a href="https://www.uyap.gov.tr/Uyap-Editor">UYAP Editör sayfası</a>na göre işlemcinize uygun güncel sürümü (Intel ya da Apple
+                Silicon) kurduğunuzda Java kurmanıza gerek yoktur. Big Sur 11 ve öncesi için olan Intel sürümü ise uyumlu
+                bir Java ister. Ayrıntı <a href="/uyap-pdf/blog/uyap-editor-mac/">UYAP Editör Mac</a> yazısında.
+              </li>
+              <li>
+                <strong>UYAP Editör, Windows:</strong> <a href="https://vatandas.uyap.gov.tr/main/destek/uyap-kullanim-kilavuzu-ve-yasanan-problemler.pdf">UYAP Vatandaş Portal sıkça sorulan sorular belgesi</a> editör açılırken "Javaw bulunamıyor" hatası alan
+                kullanıcıya bilgisayarda Java kurulu olup olmadığını kontrol etmesini söyler. Hata alıyorsanız aşağıdaki
+                adımlar geçerlidir.
+              </li>
+              <li>
+                <strong>E-imza işlemleri:</strong> <a href="https://kamusm.bilgem.tubitak.gov.tr/islemler/surucu_yukleme_servisi/">Kamu SM Sürücü Yükleme Servisi</a>, Bireysel İşlemler ve başvuru portalları gibi Kamu SM
+                hizmetleri için Java 1.8 veya üzerini şart koşar. PIN oluşturma ve kilit çözme bu kapsama girer.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Java nereden indirilir?</h2></div>
+          <div class="panel-body">
+            <p>
+              UYAP'ın SSS belgesi, uyumlu Java'nın Vatandaş Portal'daki <strong>Programlar</strong> sayfasından indirilmesini söyler. Portala girdikten
+              sonra sol menüdeki <strong>Programlar</strong> sekmesinde UYAP ile kullanılacak programların listesi bulunur.
+              "UYAP Java indir" diye arayıp tanımadığınız sitelerden kurulum dosyası indirmeyin.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Hata: Javaw Windows tarafından bulunamıyor</h2></div>
+          <div class="panel-body">
+            <p>SSS belgesinin çözümü iki adımdır. Önce Java'nın kurulu olup olmadığına bakın, değilse Programlar sayfasından kurun. Java kuruluysa ve hata sürüyorsa Java'nın klasörünü Path'e ekleyin:</p>
+            <ol>
+              <li>Java'nın <code>bin</code> klasörünü bulun ve yolunu kopyalayın. Belgedeki örnek:</li>
+            </ol>
+            <pre class="code"><code>C:\Program Files (x86)\Java\jreX.X.X_XXX\bin</code></pre>
+            <ol start="2">
+              <li>Masaüstünde Bilgisayar simgesine sağ tıklayıp <strong>Özellikler</strong>'i açın.</li>
+              <li><strong>Gelişmiş Sistem Ayarları › Gelişmiş › Ortam Değişkenleri</strong>'ne girin, <strong>Path</strong>'i seçip <strong>Düzenle</strong>'ye basın.</li>
+              <li>Var olan değeri silmeden en başa kopyaladığınız yolu yapıştırın ve sonuna noktalı virgül koyun.</li>
+              <li>Pencereleri <strong>Tamam</strong> ile kapatın ve editörü yeniden açın.</li>
+            </ol>
+            <p>
+              Windows 10 ve 11'de Ortam Değişkenleri penceresi Path'i satır satır gösterir. Orada <strong>Yeni</strong>
+              deyip yolu ekleyin ve <strong>Yukarı Taşı</strong> ile en üste alın; noktalı virgül gerekmez.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Hata: Application Blocked by Java Security</h2></div>
+          <div class="panel-body">
+            <p>SSS belgesi, yeni UYAP uygulamasını açarken bu hatayı alanlar için şu adımları verir:</p>
+            <ol>
+              <li>Başlat menüsünden <strong>Denetim Masası</strong>'nı açın ve <strong>Java</strong>'ya tıklayın.</li>
+              <li>Java Control Panel'de ilk sekme olan <strong>General</strong>'da, <strong>Temporary Internet Files</strong> bölümündeki <strong>View</strong> düğmesine basın.</li>
+              <li>Açılan penceredeki bütün uygulamaları kırmızı çarpıyla silin.</li>
+              <li>Uygulamayı yeniden çalıştırın.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Editör yine açılmıyorsa</h2></div>
+          <div class="panel-body">
+            <p>
+              Java sorunu çözüldüğü halde siyah ekran gelip gidiyorsa sebep çoğunlukla editörün eski sürümü ya da bozuk
+              ayar dosyalarıdır. <a href="https://www.uyap.gov.tr/Uyap-Editor">UYAP Editör sayfası</a>nın önerdiği sıra (son sürüm, <code>.uki</code> klasöründeki ayar dosyalarını
+              silme, temiz kurulum) <a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Editör açılmıyor</a> yazısında. Belgeyi
+              beklemeden okumak için <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a> dosyayı kurulum gerektirmeden tarayıcıda açar.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İlgili yazılar</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Doküman Editörü açılmıyor: siyah ekran ve imza sorunu</a></li>
+              <li><a href="/uyap-pdf/blog/uyap-e-imza-kurulumu/">UYAP için e-imza kurulumu adım adım</a></li>
+              <li><a href="/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/">E-imza PIN&#x27;i bloke oldu: kilit nasıl çözülür?</a></li>
+            </ul>
+            <p>Bütün yazılar <a href="/uyap-pdf/blog/">blog</a> sayfasında.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>UDF Çevirici, açık kaynak, MIT lisansı. UYAP ve e-Devlet ile bağlantısı yoktur.</span>
+        <span class="links">
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir</a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir</a>
+          <a href="/uyap-pdf/blog/">Blog</a>
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/guide.ts"></script>
+  </body>
+</html>

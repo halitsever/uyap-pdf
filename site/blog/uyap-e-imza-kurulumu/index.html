@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2c47" />
+    <title>UYAP E-İmza Kurulumu: Sürücü, Java ve Giriş Adımları</title>
+    <meta name="description" content="UYAP e-imza kurulumu: kart okuyucu ve akıllı kart sürücüsü, Java, UYAP Editör ve Vatandaş Portal&#x27;a e-imzayla giriş. Resmî sayfalara dayanan sade bir sıra." />
+    <link rel="canonical" href="https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/" />
+    <link rel="icon" type="image/svg+xml" href="/uyap-pdf/favicon.svg" />
+    <link rel="apple-touch-icon" href="/uyap-pdf/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UDF Çevirici" />
+    <meta property="og:title" content="UYAP E-İmza Kurulumu: Sürücü, Java ve Giriş Adımları" />
+    <meta property="og:description" content="UYAP e-imza kurulumu: kart okuyucu ve akıllı kart sürücüsü, Java, UYAP Editör ve Vatandaş Portal&#x27;a e-imzayla giriş. Resmî sayfalara dayanan sade bir sıra." />
+    <meta property="og:url" content="https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/" />
+    <meta property="og:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UYAP E-İmza Kurulumu: Sürücü, Java ve Giriş Adımları" />
+    <meta name="twitter:description" content="UYAP e-imza kurulumu: kart okuyucu ve akıllı kart sürücüsü, Java, UYAP Editör ve Vatandaş Portal&#x27;a e-imzayla giriş. Resmî sayfalara dayanan sade bir sıra." />
+    <meta name="twitter:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "UYAP için e-imza kurulumu adım adım",
+            "description": "UYAP e-imza kurulumu: kart okuyucu ve akıllı kart sürücüsü, Java, UYAP Editör ve Vatandaş Portal'a e-imzayla giriş. Resmî sayfalara dayanan sade bir sıra.",
+            "url": "https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/",
+            "mainEntityOfPage": "https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/uyap-pdf/og-tr.png",
+            "keywords": "uyap e imza kurulum",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "UDF Çevirici",
+                "item": "https://projects.halit.org/uyap-pdf/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/uyap-pdf/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "UYAP için e-imza kurulumu adım adım",
+                "item": "https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'></script>
+  </head>
+  <body>
+    <div class="topstrip">
+      <div class="shell">
+        <span>Bağımsız açık kaynak araç. Resmî bir kurum sitesi değildir.</span>
+        <span class="topstrip-links">
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/uyap-pdf/">
+          <span class="doc-logo" aria-hidden="true">
+            <span class="fold"></span>
+            <i></i><i></i><i></i><i></i>
+            <span class="tag">UDF</span>
+          </span>
+          <span class="brand-text">
+            <strong>UDF Çevirici</strong>
+            <span>PDF → UYAP Doküman Formatı</span>
+          </span>
+        </a>
+        <span class="header-badge">Sunucusuz, tarayıcıda çalışır</span>
+      </div>
+    </header>
+
+    <div class="crumbs">
+      <div class="shell"><a href="/uyap-pdf/">Ana sayfa</a> &nbsp;›&nbsp; <a href="/uyap-pdf/blog/">Blog</a> &nbsp;›&nbsp; <b>UYAP e-imza kurulumu</b></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidemenu" aria-label="Sayfalar">
+        <div class="sidemenu-title">SAYFALAR</div>
+        <nav>
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/">UDF nedir?<span class="chev">›</span></a>
+          <a href="/uyap-pdf/blog/">Blog<span class="chev">›</span></a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head"><h1>UYAP için e-imza kurulumu adım adım</h1></div>
+          <div class="panel-body">
+            <p class="post-meta">Halit Sever · <time datetime="2026-11-28">28 Kasım 2026</time></p>
+            <p class="lead">E-imza kartı ve kart okuyucu elinize geçtiğinde UYAP'ta kullanabilmek için bilgisayara birkaç parça kurmanız gerekir: sürücüler, bazı işlemler için Java ve UYAP Editör. Bu yazı sırayı, e-imza sağlayıcısı Kamu SM ve UYAP'ın kendi sayfalarına dayanarak anlatıyor.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Kurulumda neler var?</h2></div>
+          <div class="panel-body">
+            <p>E-imza, bir akıllı kart (ya da SIM boyutunda bir kart) içindeki sertifika ile çalışır. Bilgisayarın bu karta ulaşması için:</p>
+            <ol>
+              <li><strong>Kart okuyucu sürücüsü:</strong> USB kart okuyucunun tanınması için.</li>
+              <li><strong>Akıllı kart sürücüsü:</strong> karttaki sertifikanın okunması için.</li>
+              <li><strong>Java:</strong> sağlayıcının çevrim içi işlemleri ve bazı imza uygulamaları için.</li>
+              <li><strong>UYAP Editör:</strong> UDF belgelerini açmak ve imzalamak için.</li>
+            </ol>
+            <p>
+              Hangi sürücünün gerektiği, e-imzanızı aldığınız sağlayıcıya ve size gönderilen kart okuyucunun modeline
+              bağlıdır. UYAP'ın SSS belgesi sağlayıcılara örnek olarak TÜBİTAK, Türkiye Barolar Birliği, Turktrust,
+              E-Güven ve E-Tuğra'yı sayar. Aşağıdaki adımlar TÜBİTAK'ın Kamu Sertifikasyon Merkezi'ne (Kamu SM) göre
+              yazıldı. Başka bir sağlayıcıdan aldıysanız aynı mantık geçerlidir, sürücüleri o sağlayıcının sitesinden
+              indirin.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>1. Sürücüleri kurun</h2></div>
+          <div class="panel-body">
+            <p><a href="https://kamusm.bilgem.tubitak.gov.tr/islemler/surucu_yukleme_servisi/">Kamu SM Sürücü Yükleme Servisi</a> iki seçim ister ve size uygun dosyaları listeler:</p>
+            <ol>
+              <li>İşletim sisteminizi seçin.</li>
+              <li>Size gönderilen kart okuyucuyu seçin.</li>
+              <li><strong>Kurulum 1:</strong> akıllı kart sürücüsünü indirip kurun.</li>
+              <li><strong>Kurulum 2:</strong> kart okuyucu sürücüsünü indirip kurun.</li>
+            </ol>
+            <p>
+              Kurulumdan sonra kart okuyucuyu çıkarıp yeniden takmak ve bilgisayarı yeniden başlatmak, aygıtın
+              yeni sürücüyle tanınmasını sağlar.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>2. Java</h2></div>
+          <div class="panel-body">
+            <p>
+              Aynı Kamu SM sayfası, Bireysel İşlemler ve başvuru portalları gibi Kamu SM hizmetlerinin çalışması için
+              bilgisayarda Java 1.8 veya üzeri bir sürümün kurulu olmasını şart koşar. PIN oluşturma ve kilit çözme gibi
+              işlemler bu yüzden Java ister.
+            </p>
+            <p>
+              UYAP Editör için durum işletim sistemine göre değişir. <a href="https://www.uyap.gov.tr/Uyap-Editor">UYAP Editör sayfası</a>na göre Mac'te işlemcinize uygun güncel
+              sürümü (Intel ya da Apple Silicon) kurarsanız ayrıca Java kurmanıza gerek yoktur; yalnızca Big Sur ve öncesi
+              için olan Intel sürümü uyumlu bir Java ister. Java ile ilgili hatalar ve çözümleri
+              <a href="/uyap-pdf/blog/uyap-java/">UYAP için Java</a> yazısında.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>3. UYAP Editör'ü kurun</h2></div>
+          <div class="panel-body">
+            <p>
+              E-imza ve mobil imzayla UDF imzalamak için bilgisayardaki UYAP Editör'ün son sürüm olması gerekir; bunu
+              <a href="https://www.uyap.gov.tr/Uyap-Editor">UYAP Editör sayfası</a> da ayrıca vurgular. 28 Kasım 2026'da sayfadaki Windows sürümü 5.4.20, Intel ve Apple Silicon Mac'ler için olan sürüm 5.4.21'di.
+              Hangi dosyanın seçileceği <a href="/uyap-pdf/blog/uyap-dokuman-editoru/">UYAP Doküman Editörü nedir</a> yazısında.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>4. Vatandaş Portal'a e-imzayla giriş</h2></div>
+          <div class="panel-body">
+            <p><a href="https://vatandas.uyap.gov.tr/main/destek/uyap-kullanim-kilavuzu-ve-yasanan-problemler.pdf">UYAP Vatandaş Portal sıkça sorulan sorular belgesi</a> e-imzayla giriş için şu adımları verir:</p>
+            <ol>
+              <li>Girişi Google Chrome ile yapın.</li>
+              <li>Yeni UYAP uygulamasında PIN bölümündeki anahtar simgesine tıklayın.</li>
+              <li>Açılan pencerede tarayıcı olarak <strong>Chrome</strong>'u seçip <strong>Kaydet</strong>'e basın.</li>
+              <li>E-imzanızın PIN kodunu girin ve <strong>İmzala</strong> düğmesine basın.</li>
+            </ol>
+            <p>
+              Belge aynı zamanda e-Devlet şifresiyle girenlerin dosya ve evrakları görebileceğini, ama dava açma ve evrak
+              gönderme işlemlerini e-imza girişi olmadan yapamayacağını yazar. Kurulumu yapmanın asıl sebebi çoğu zaman
+              budur.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Kurulumdan sonra e-imza nasıl kullanılır?</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><strong>Giriş:</strong> Vatandaş Portal gibi sistemlere yukarıdaki gibi PIN ile girilir.</li>
+              <li><strong>Belge imzalama:</strong> UDF belge UYAP Editör'de açılır ve imzalanır. İmzalı UDF dosyasının
+              içinde ne olduğu <a href="/uyap-pdf/blog/udf-e-imza/">UDF ve e-imza</a> yazısında.</li>
+              <li><strong>PIN:</strong> PIN üç kez yanlış girilirse kilitlenir. Çözümü
+              <a href="/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/">e-imza PIN bloke kaldırma</a> yazısında.</li>
+            </ul>
+            <p>
+              Bu sitedeki dönüştürücüler e-imza istemez ve imza atamaz: dosyayı tarayıcıda çevirir, imzalı bir belge
+              üretmez. Belgeyi bu araçlarla hazırladıysanız imzayı editörde atın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İlgili yazılar</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="/uyap-pdf/blog/e-imza-nedir/">E-imza nedir, ıslak imzanın yerini tutar mı?</a></li>
+              <li><a href="/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/">E-imza PIN&#x27;i bloke oldu: kilit nasıl çözülür?</a></li>
+              <li><a href="/uyap-pdf/blog/uyap-java/">UYAP için Java gerekir mi, hatalar nasıl çözülür?</a></li>
+            </ul>
+            <p>Bütün yazılar <a href="/uyap-pdf/blog/">blog</a> sayfasında.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>UDF Çevirici, açık kaynak, MIT lisansı. UYAP ve e-Devlet ile bağlantısı yoktur.</span>
+        <span class="links">
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir</a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir</a>
+          <a href="/uyap-pdf/blog/">Blog</a>
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/guide.ts"></script>
+  </body>
+</html>

@@ -50,7 +50,13 @@ rendering uses PDFium via WebAssembly. `convertPdfBufferToUdf` returns
 - [UDF to PDF Converter](https://projects.halit.org/uyap-pdf/en/udf-to-pdf/): the same converter in English
 - [UDF Görüntüleyici](https://projects.halit.org/uyap-pdf/udf-goruntuleyici/): Turkish page to open and read a .udf file in the browser, with an optional PDF download
 - [UDF Nedir?](https://projects.halit.org/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/): Turkish guide to the UDF format (a ZIP holding content.xml), where to download UYAP Doküman Editörü officially, and how to read a UDF without it
-- [Blog](https://projects.halit.org/uyap-pdf/blog/): Turkish articles on the UDF format, UYAP Doküman Editörü (versions, Mac, when it does not open), making a UDF, JPG to UDF, opening UDF on a phone, and e-signatures
+- [Blog](https://projects.halit.org/uyap-pdf/blog/): Turkish articles on the UDF format, UYAP Doküman Editörü (versions, Mac, when it does not open), making a UDF, JPG to UDF, opening UDF on a phone, e-signatures, e-imza setup and PIN unblocking, Java for UYAP, the Vatandaş Portal and documents that do not open
+- [UYAP e-imza kurulumu](https://projects.halit.org/uyap-pdf/blog/uyap-e-imza-kurulumu/): drivers, Java, UYAP Editör and e-imza login, in Turkish
+- [E-imza nedir](https://projects.halit.org/uyap-pdf/blog/e-imza-nedir/): secure electronic signatures under Law 5070, in Turkish
+- [E-imza PIN bloke kaldırma](https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/): unlocking a blocked PIN through Kamu SM, in Turkish
+- [UYAP için Java](https://projects.halit.org/uyap-pdf/blog/uyap-java/): which UYAP tools need Java, the Javaw and Java Security errors, in Turkish
+- [UYAP Vatandaş Portal nedir](https://projects.halit.org/uyap-pdf/blog/uyap-vatandas-portal-nedir/): who can use it, login methods and services, in Turkish
+- [UYAP'ta evrak açılmıyor](https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/): fixing the document viewing error and opening UDF files, in Turkish
 - [Word UDF Çevirme](https://projects.halit.org/uyap-pdf/word-udf-cevirme/): Word (.docx) to UDF converter in Turkish, with what the UDF keeps, limitations, other routes and FAQ
 - [Word to UDF Converter](https://projects.halit.org/uyap-pdf/en/word-to-udf/): the same converter in English
 - [UDF Word Çevirme](https://projects.halit.org/uyap-pdf/udf-word-cevirme/): UDF to Word (.docx) converter in Turkish, with what the Word file keeps, limitations and FAQ
