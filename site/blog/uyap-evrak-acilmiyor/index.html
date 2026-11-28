@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2c47" />
+    <title>UYAP&#x27;ta Evrak Açılmıyor: Görüntüleme Hatası Çözümü</title>
+    <meta name="description" content="UYAP&#x27;ta dosyalar görünüyor ama evrak açılmıyor mu? Chrome, geçmişi temizleme, açılır pencere izni, UDF için editör ve kurulum yapmadan evrakı açmanın yolu." />
+    <link rel="canonical" href="https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/" />
+    <link rel="icon" type="image/svg+xml" href="/uyap-pdf/favicon.svg" />
+    <link rel="apple-touch-icon" href="/uyap-pdf/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UDF Çevirici" />
+    <meta property="og:title" content="UYAP&#x27;ta Evrak Açılmıyor: Görüntüleme Hatası Çözümü" />
+    <meta property="og:description" content="UYAP&#x27;ta dosyalar görünüyor ama evrak açılmıyor mu? Chrome, geçmişi temizleme, açılır pencere izni, UDF için editör ve kurulum yapmadan evrakı açmanın yolu." />
+    <meta property="og:url" content="https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/" />
+    <meta property="og:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="UYAP&#x27;ta Evrak Açılmıyor: Görüntüleme Hatası Çözümü" />
+    <meta name="twitter:description" content="UYAP&#x27;ta dosyalar görünüyor ama evrak açılmıyor mu? Chrome, geçmişi temizleme, açılır pencere izni, UDF için editör ve kurulum yapmadan evrakı açmanın yolu." />
+    <meta name="twitter:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "UYAP'ta evrak açılmıyorsa ne yapmalı?",
+            "description": "UYAP'ta dosyalar görünüyor ama evrak açılmıyor mu? Chrome, geçmişi temizleme, açılır pencere izni, UDF için editör ve kurulum yapmadan evrakı açmanın yolu.",
+            "url": "https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/",
+            "mainEntityOfPage": "https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/uyap-pdf/og-tr.png",
+            "keywords": "uyapta evrak açılmıyor",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "UDF Çevirici",
+                "item": "https://projects.halit.org/uyap-pdf/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/uyap-pdf/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "UYAP'ta evrak açılmıyorsa ne yapmalı?",
+                "item": "https://projects.halit.org/uyap-pdf/blog/uyap-evrak-acilmiyor/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'></script>
+  </head>
+  <body>
+    <div class="topstrip">
+      <div class="shell">
+        <span>Bağımsız açık kaynak araç. Resmî bir kurum sitesi değildir.</span>
+        <span class="topstrip-links">
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/uyap-pdf/">
+          <span class="doc-logo" aria-hidden="true">
+            <span class="fold"></span>
+            <i></i><i></i><i></i><i></i>
+            <span class="tag">UDF</span>
+          </span>
+          <span class="brand-text">
+            <strong>UDF Çevirici</strong>
+            <span>PDF → UYAP Doküman Formatı</span>
+          </span>
+        </a>
+        <span class="header-badge">Sunucusuz, tarayıcıda çalışır</span>
+      </div>
+    </header>
+
+    <div class="crumbs">
+      <div class="shell"><a href="/uyap-pdf/">Ana sayfa</a> &nbsp;›&nbsp; <a href="/uyap-pdf/blog/">Blog</a> &nbsp;›&nbsp; <b>UYAP&#x27;ta evrak açılmıyor</b></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidemenu" aria-label="Sayfalar">
+        <div class="sidemenu-title">SAYFALAR</div>
+        <nav>
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/">UDF nedir?<span class="chev">›</span></a>
+          <a href="/uyap-pdf/blog/">Blog<span class="chev">›</span></a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head"><h1>UYAP&#x27;ta evrak açılmıyorsa ne yapmalı?</h1></div>
+          <div class="panel-body">
+            <p class="post-meta">Halit Sever · <time datetime="2026-11-28">28 Kasım 2026</time></p>
+            <p class="lead">Vatandaş Portal'a giriyorsunuz, dosyalar listeleniyor ama evraka tıklayınca hiçbir şey açılmıyor. UYAP'ın kendi SSS belgesi bu durumu Evrak Görüntüleme Hatası diye anar ve çözümü birkaç adımda verir. Sebep çoğunlukla tarayıcı ayarı ya da UDF dosyasını açacak programın eksikliğidir.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>1. Google Chrome kullanın</h2></div>
+          <div class="panel-body">
+            <p>
+              <a href="https://vatandas.uyap.gov.tr/main/destek/uyap-kullanim-kilavuzu-ve-yasanan-problemler.pdf">UYAP Vatandaş Portal sıkça sorulan sorular belgesi</a> bilgisayardan girişte mutlaka Google Chrome kullanılmasını ister. E-imzayla giriyorsanız yeni UYAP
+              uygulamasında PIN bölümündeki anahtar simgesine tıklayıp tarayıcı olarak Chrome'u seçin ve kaydedin. E-Devlet
+              şifresiyle girişte hata alıyorsanız belge 160 numaralı telefonu verir.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>2. Geçmişi temizleyin ve açılır pencerelere izin verin</h2></div>
+          <div class="panel-body">
+            <p>Evraklar çoğu zaman yeni bir pencerede açılır. Chrome bu pencereyi engellerse tıklama boşa gider. Belgenin önerdiği adımlar:</p>
+            <ol>
+              <li>Chrome'da <kbd>Ctrl</kbd>+<kbd>H</kbd> ile geçmişi açın, <strong>Tarama verilerini temizle</strong>'ye tıklayıp geçmişi temizleyin.</li>
+              <li>Adres çubuğuna aşağıdaki adresi yazın, <strong>Pop-up'lar</strong> ayarını bulun ve engellemeyi kaldırın:</li>
+            </ol>
+            <pre class="code"><code>chrome://settings/content</code></pre>
+            <p>
+              Bütün sitelerde izin vermek yerine yalnızca <code>vatandas.uyap.gov.tr</code> için izin vermek daha
+              güvenlidir. Chrome'un açılır pencere ayarında siteyi izin verilenler listesine ekleyebilirsiniz.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>3. UDF evrak için editör gerekir</h2></div>
+          <div class="panel-body">
+            <p>
+              Portaldaki evrakların çoğu .udf uzantılıdır. SSS belgesine göre bunları görüntülemek için bilgisayarda UYAP
+              Editör Programı kurulu olmalıdır. Program portalda sol menüdeki <strong>Programlar</strong> sekmesinden
+              indirilir. Evrak iniyor ama açılmıyorsa sorun büyük ihtimalle budur: bilgisayar .udf dosyasını hangi
+              programla açacağını bilmez.
+            </p>
+            <p>
+              Editör kurulu olduğu halde açılmıyorsa <a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Editör açılmıyor</a>
+              yazısındaki sırayı, Java hatası alıyorsanız <a href="/uyap-pdf/blog/uyap-java/">UYAP için Java</a> yazısını izleyin.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Kurulum yapmadan evrakı okumak</h2></div>
+          <div class="panel-body">
+            <p>
+              İndirdiğiniz .udf dosyasını hemen okumanız gerekiyorsa <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a> dosyayı tarayıcıda açar. Dosya bilgisayarınızdan
+              çıkmaz, hiçbir sunucuya yüklenmez. Aynı dosyayı <a href="/uyap-pdf/udf-pdf-cevirme/">UDF PDF çevirme</a>
+              aracıyla PDF olarak da kaydedebilirsiniz.
+            </p>
+            <p>
+              Bu kopyalar okumak ve paylaşmak içindir. E-imzalı bir evrakın imzası PDF'ye taşınmaz; resmî işlem için asıl
+              UDF dosyasını saklayın. Ayrıntı <a href="/uyap-pdf/blog/udf-e-imza/">UDF ve e-imza</a> yazısında. Telefondan açmak için
+              <a href="/uyap-pdf/blog/telefonda-udf-dosyasi-acma/">telefonda UDF dosyası açma</a> yazısına bakın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İlgili yazılar</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Doküman Editörü açılmıyor: siyah ekran ve imza sorunu</a></li>
+              <li><a href="/uyap-pdf/blog/telefonda-udf-dosyasi-acma/">Telefonda UDF dosyası nasıl açılır? Android ve iPhone için yollar</a></li>
+              <li><a href="/uyap-pdf/blog/uyap-vatandas-portal-nedir/">UYAP Vatandaş Portal nedir, neler yapılabilir?</a></li>
+            </ul>
+            <p>Bütün yazılar <a href="/uyap-pdf/blog/">blog</a> sayfasında.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>UDF Çevirici, açık kaynak, MIT lisansı. UYAP ve e-Devlet ile bağlantısı yoktur.</span>
+        <span class="links">
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir</a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir</a>
+          <a href="/uyap-pdf/blog/">Blog</a>
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/guide.ts"></script>
+  </body>
+</html>

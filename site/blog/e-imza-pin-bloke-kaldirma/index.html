@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2c47" />
+    <title>E-İmza PIN Bloke Kaldırma: Kilitlenen PIN Nasıl Açılır?</title>
+    <meta name="description" content="E-imza PIN bloke kaldırma: PIN neden kilitlenir, Kamu SM Online İşlemler ile yeni PIN oluşturma adımları, PUK ile neden denenmemeli, diğer sağlayıcılar." />
+    <link rel="canonical" href="https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/" />
+    <link rel="icon" type="image/svg+xml" href="/uyap-pdf/favicon.svg" />
+    <link rel="apple-touch-icon" href="/uyap-pdf/apple-touch-icon.png" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UDF Çevirici" />
+    <meta property="og:title" content="E-İmza PIN Bloke Kaldırma: Kilitlenen PIN Nasıl Açılır?" />
+    <meta property="og:description" content="E-imza PIN bloke kaldırma: PIN neden kilitlenir, Kamu SM Online İşlemler ile yeni PIN oluşturma adımları, PUK ile neden denenmemeli, diğer sağlayıcılar." />
+    <meta property="og:url" content="https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/" />
+    <meta property="og:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="E-İmza PIN Bloke Kaldırma: Kilitlenen PIN Nasıl Açılır?" />
+    <meta name="twitter:description" content="E-imza PIN bloke kaldırma: PIN neden kilitlenir, Kamu SM Online İşlemler ile yeni PIN oluşturma adımları, PUK ile neden denenmemeli, diğer sağlayıcılar." />
+    <meta name="twitter:image" content="https://projects.halit.org/uyap-pdf/og-tr.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "headline": "E-imza PIN'i bloke oldu: kilit nasıl çözülür?",
+            "description": "E-imza PIN bloke kaldırma: PIN neden kilitlenir, Kamu SM Online İşlemler ile yeni PIN oluşturma adımları, PUK ile neden denenmemeli, diğer sağlayıcılar.",
+            "url": "https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/",
+            "mainEntityOfPage": "https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/",
+            "datePublished": "2026-11-28",
+            "dateModified": "2026-11-28",
+            "inLanguage": "tr",
+            "image": "https://projects.halit.org/uyap-pdf/og-tr.png",
+            "keywords": "e imza pin bloke kaldırma",
+            "author": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Halit Sever",
+              "jobTitle": "Developer",
+              "url": "https://halit.org"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "UDF Çevirici",
+                "item": "https://projects.halit.org/uyap-pdf/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://projects.halit.org/uyap-pdf/blog/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "E-imza PIN'i bloke oldu: kilit nasıl çözülür?",
+                "item": "https://projects.halit.org/uyap-pdf/blog/e-imza-pin-bloke-kaldirma/"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}'></script>
+  </head>
+  <body>
+    <div class="topstrip">
+      <div class="shell">
+        <span>Bağımsız açık kaynak araç. Resmî bir kurum sitesi değildir.</span>
+        <span class="topstrip-links">
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/uyap-pdf/">
+          <span class="doc-logo" aria-hidden="true">
+            <span class="fold"></span>
+            <i></i><i></i><i></i><i></i>
+            <span class="tag">UDF</span>
+          </span>
+          <span class="brand-text">
+            <strong>UDF Çevirici</strong>
+            <span>PDF → UYAP Doküman Formatı</span>
+          </span>
+        </a>
+        <span class="header-badge">Sunucusuz, tarayıcıda çalışır</span>
+      </div>
+    </header>
+
+    <div class="crumbs">
+      <div class="shell"><a href="/uyap-pdf/">Ana sayfa</a> &nbsp;›&nbsp; <a href="/uyap-pdf/blog/">Blog</a> &nbsp;›&nbsp; <b>E-imza PIN bloke</b></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidemenu" aria-label="Sayfalar">
+        <div class="sidemenu-title">SAYFALAR</div>
+        <nav>
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir<span class="chev">›</span></a>
+          <a href="/uyap-pdf/udf-dosyasi-nedir-nasil-acilir/">UDF nedir?<span class="chev">›</span></a>
+          <a href="/uyap-pdf/blog/">Blog<span class="chev">›</span></a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="panel">
+          <div class="panel-head"><h1>E-imza PIN&#x27;i bloke oldu: kilit nasıl çözülür?</h1></div>
+          <div class="panel-body">
+            <p class="post-meta">Halit Sever · <time datetime="2026-11-28">28 Kasım 2026</time></p>
+            <p class="lead">E-imza PIN kodu üç kez yanlış girilince kart kilitlenir ve imza atılamaz. Kilidi açmanın yolu e-imzayı aldığınız sağlayıcıdan geçer. Bu yazı Kamu SM için adımları Adalet Bakanlığı'nın kılavuzuna göre anlatıyor.</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>PIN neden bloke olur?</h2></div>
+          <div class="panel-body">
+            <p>
+              <a href="https://rayp.adalet.gov.tr/resimler/507/dosya/e-imza-nes-pin-kilit-cozme-yardim-klavuzu-kopya30-04-20262-25-pm.pdf">Adalet Bakanlığı'nın NES PIN kılavuzu</a>ndaki uyarıya göre PIN üç kez hatalı girildiğinde kart kilitlenir ve yeni PIN oluşturulması
+              gerekir. Kılavuz bir uyarı daha yapar: kuryeden yeni gelen bir nitelikli elektronik sertifikanın (NES) PIN'i,
+              önceki kartınızın PIN'i değildir. Yeni kart için de ilk PIN aynı yoldan oluşturulur.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Önce: kartı kimden aldınız?</h2></div>
+          <div class="panel-body">
+            <p>
+              Kilit çözme işlemini UYAP ya da mahkeme değil, e-imzayı veren sağlayıcı yapar. <a href="https://vatandas.uyap.gov.tr/main/destek/uyap-kullanim-kilavuzu-ve-yasanan-problemler.pdf">UYAP Vatandaş Portal sıkça sorulan sorular belgesi</a> PIN'i kilitlenen
+              kullanıcıya e-imzayı aldığı firma ya da kurumla (TÜBİTAK, Türkiye Barolar Birliği, Turktrust, E-Güven,
+              E-Tuğra gibi) iletişime geçmesini söyler. Aşağıdaki adımlar TÜBİTAK'ın Kamu SM'si içindir. Kartınız başka bir
+              sağlayıcıdansa onun çevrim içi işlemler sayfasına bakın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Kamu SM'de kilit çözme adımları</h2></div>
+          <div class="panel-body">
+            <p><a href="https://rayp.adalet.gov.tr/resimler/507/dosya/e-imza-nes-pin-kilit-cozme-yardim-klavuzu-kopya30-04-20262-25-pm.pdf">Adalet Bakanlığı'nın NES PIN kılavuzu</a> sırayı şöyle verir:</p>
+            <ol>
+              <li>Kamu SM'nin Online İşlemler sayfasını açın ve <strong>Giriş</strong>'e tıklayın.</li>
+              <li><strong>E-Devlet Kapısına Git</strong> düğmesine basın.</li>
+              <li>Giriş yöntemi olarak T.C. Kimlik Kartı ya da İnternet Bankacılığı'nı seçin. Kimlik kartıyla giriş için masaüstü kart okuyucu gerekir; internet bankacılığında bankanız doğrulamadan sonra sizi Kamu SM'ye geri yönlendirir.</li>
+              <li><strong>NES İşlemleri</strong> menüsüne tıklayın.</li>
+              <li><strong>Bireysel İşlemler</strong>'i seçin.</li>
+              <li><strong>PIN Oluşturma/Kilit Çözme</strong>'ye tıklayın.</li>
+              <li>Ekrandaki maddeleri izleyerek E-imza Uygulaması'nı indirin ve çift tıklayarak açın. Java güncel değilse bir güncelleme uyarısı çıkabilir.</li>
+              <li>Uygulama açılınca Kilit Çözme ekranındaki doğrulama kodunu ilgili alana yapıştırın ve ileri gidin.</li>
+              <li>Yeni PIN'i iki kez girip <strong>PIN Kodunu Değiştir</strong>'e basın.</li>
+              <li>SMS onayı veya web parolası ekranında istenen bilgiyi girip onaylayın.</li>
+            </ol>
+            <p>
+              Uygulama Java ile çalıştığı için bilgisayarda Java olmalıdır; Kamu SM'nin sürücü sayfası çevrim içi işlemler
+              için Java 1.8 veya üzerini şart koşar. Java sorunları için <a href="/uyap-pdf/blog/uyap-java/">UYAP için Java</a>
+              yazısına bakın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>PUK ile denemeyin</h2></div>
+          <div class="panel-body">
+            <p>
+              Kılavuzdaki en sert uyarı budur: AKİS Kart İzleme Aracı üzerinden PUK koduyla asla işlem yapılmamalıdır.
+              Yetkisiz ya da hatalı üç PUK denemesi kartı tamamen kullanılmaz hale getirir ve kart ancak ücret karşılığında
+              yenilenir. Kilit çözme için yukarıdaki çevrim içi yolu kullanın.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Kilit açıldıktan sonra</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li>Yeni PIN'i güvenli bir yerde saklayın. Kılavuz, PIN'i korumanın kart sahibinin sorumluluğunda olduğunu yazar.</li>
+              <li>UYAP'a girişte ve UYAP Editör'de imza atarken yeni PIN'i kullanın.</li>
+              <li>İmza hâlâ atılamıyorsa sorun PIN'de değil kurulumda olabilir: sürücüler ve editör sürümü için
+              <a href="/uyap-pdf/blog/uyap-e-imza-kurulumu/">UYAP e-imza kurulumu</a>, editör açılmıyorsa
+              <a href="/uyap-pdf/blog/uyap-editor-acilmiyor/">UYAP Editör açılmıyor</a> yazısına bakın.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>İlgili yazılar</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="/uyap-pdf/blog/uyap-e-imza-kurulumu/">UYAP için e-imza kurulumu adım adım</a></li>
+              <li><a href="/uyap-pdf/blog/e-imza-nedir/">E-imza nedir, ıslak imzanın yerini tutar mı?</a></li>
+              <li><a href="/uyap-pdf/blog/uyap-java/">UYAP için Java gerekir mi, hatalar nasıl çözülür?</a></li>
+            </ul>
+            <p>Bütün yazılar <a href="/uyap-pdf/blog/">blog</a> sayfasında.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>UDF Çevirici, açık kaynak, MIT lisansı. UYAP ve e-Devlet ile bağlantısı yoktur.</span>
+        <span class="links">
+          <a href="/uyap-pdf/">PDF'yi UDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-pdf-cevirme/">UDF'yi PDF'ye çevir</a>
+          <a href="/uyap-pdf/udf-goruntuleyici/">UDF görüntüleyici</a>
+          <a href="/uyap-pdf/udf-word-cevirme/">UDF'yi Word'e çevir</a>
+          <a href="/uyap-pdf/word-udf-cevirme/">Word'ü UDF'ye çevir</a>
+          <a href="/uyap-pdf/blog/">Blog</a>
+          <a href="https://github.com/halitsever/uyap-pdf">GitHub</a>
+        </span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/guide.ts"></script>
+  </body>
+</html>
